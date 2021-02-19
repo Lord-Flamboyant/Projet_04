@@ -9,7 +9,7 @@ import java.util.List;
 public abstract class Dummy_RoomsGenerator {
 
     public static List<MeetingRoom> STATIC_ROOMS = Arrays.asList(
-            new MeetingRoom(1,"Tokyo",3,"tokyo"),
+            new MeetingRoom(1,"Tokyo",3,"Tokyo"),
             new MeetingRoom(2,"Kyoto",8,"Kyoto"),
             new MeetingRoom(3,"Osaka",5,"Osaka"),
             new MeetingRoom(4,"Hiroshima",4,"Hiroshima"),
