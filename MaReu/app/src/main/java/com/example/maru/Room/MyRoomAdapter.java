@@ -1,31 +1,26 @@
 package com.example.maru.Room;
-
-import android.view.LayoutInflater;
-import android.view.View;
+import android.view.LayoutInflater;;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
-
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.example.maru.Model.MeetingRoom;
-import com.example.maru.R;
-
+import com.example.maru.databinding.FragmentRoomBinding;
 import java.util.List;
+
 
 public class MyRoomAdapter extends RecyclerView.Adapter<MyRoomAdapter.MyViewHolder> {
 
     List<MeetingRoom> mMeetingRooms;
+
     public MyRoomAdapter(List<MeetingRoom> mMeetingRooms) {
         this.mMeetingRooms = mMeetingRooms;
     }
 
-
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
-        View view = layoutInflater.inflate(R.layout.fragment_room,parent,false);
-        return new MyViewHolder(view);
+        FragmentRoomBinding fragmentRoomBinding = FragmentRoomBinding.inflate(layoutInflater,parent,false);
+        return new MyViewHolder(fragmentRoomBinding);
     }
 
     @Override
@@ -40,19 +35,23 @@ public class MyRoomAdapter extends RecyclerView.Adapter<MyRoomAdapter.MyViewHold
 
     class MyViewHolder extends RecyclerView.ViewHolder {
 
-        private TextView mtexttest1;
-        private TextView mTexttest2;
+        FragmentRoomBinding fragmentRoomBinding;
+        private TextView mNamneMeeting;
+        private TextView mNamePlace;
 
-        MyViewHolder(View itemView) {
-            super(itemView);
 
-            mtexttest1 = itemView.findViewById(R.id.Name_Meeting);
-            mTexttest2 = itemView.findViewById(R.id.Place);
+        MyViewHolder(FragmentRoomBinding fragmentRoomBinding) {
+            super(fragmentRoomBinding.getRoot());
+            this.fragmentRoomBinding = fragmentRoomBinding;
+
+            mNamneMeeting = fragmentRoomBinding.NameMeeting;
+            mNamePlace= fragmentRoomBinding.Place;
 
         }
         void display(MeetingRoom meetingRoom) {
-            mtexttest1.setText(meetingRoom.getNameRoom());
-            mTexttest2.setText(meetingRoom.getImageCity());
+            mNamneMeeting.setText(meetingRoom.getNameRoom());
+            mNamePlace.setText(meetingRoom.getImageCity());
         }
+
     }
 }
