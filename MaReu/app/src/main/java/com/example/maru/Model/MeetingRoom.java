@@ -9,12 +9,16 @@ public class MeetingRoom implements Parcelable {
     private final String mNameRoom;
     private final long mSeat;
     private final String mImageCity;
+    private final String mHour;
+    private final String mDay;
 
-    public MeetingRoom(long id, String nameRoom, long seatPlace, String imageCity) {
+    public MeetingRoom(long id, String nameRoom, long seatPlace, String imageCity,String Hour,String Day) {
         mId = id;
         mNameRoom = nameRoom;
         mSeat = seatPlace;
         mImageCity = imageCity;
+        mHour = Hour;
+        mDay = Day;
     };
 
     protected MeetingRoom(Parcel in) {
@@ -22,6 +26,8 @@ public class MeetingRoom implements Parcelable {
         mNameRoom = in.readString();
         mSeat = in.readLong();
         mImageCity = in.readString();
+        mDay = in.readString();
+        mHour = in.readString();
     }
 
     public static final Creator<MeetingRoom> CREATOR = new Creator<MeetingRoom>() {
@@ -35,6 +41,7 @@ public class MeetingRoom implements Parcelable {
             return new MeetingRoom[size];
         }
     };
+
 
     public long getId() {
         return mId;
@@ -52,6 +59,15 @@ public class MeetingRoom implements Parcelable {
         return mImageCity;
     }
 
+    public String getHour() {
+        return mHour;
+    }
+
+    public  String getDay() {
+        return mDay;
+    }
+
+
     @Override
     public int describeContents() {
         return 0;
@@ -63,5 +79,7 @@ public class MeetingRoom implements Parcelable {
         dest.writeString(mNameRoom);
         dest.writeLong(mSeat);
         dest.writeString(mImageCity);
+        dest.writeString(mHour);
+        dest.writeString(mDay);
     }
 }
