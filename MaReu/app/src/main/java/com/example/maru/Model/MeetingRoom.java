@@ -8,26 +8,21 @@ public class MeetingRoom implements Parcelable {
     private final long mId;
     private final String mNameRoom;
     private final long mSeat;
-    private final String mImageCity;
-    private final String mHour;
-    private final String mDay;
+    private final int mImageCity;
 
-    public MeetingRoom(long id, String nameRoom, long seatPlace, String imageCity,String Hour,String Day) {
+
+    public MeetingRoom(long id, String nameRoom, long seatPlace, int imageCity) {
         mId = id;
         mNameRoom = nameRoom;
         mSeat = seatPlace;
         mImageCity = imageCity;
-        mHour = Hour;
-        mDay = Day;
     };
 
     protected MeetingRoom(Parcel in) {
         mId = in.readLong();
         mNameRoom = in.readString();
         mSeat = in.readLong();
-        mImageCity = in.readString();
-        mDay = in.readString();
-        mHour = in.readString();
+        mImageCity = in.readInt();
     }
 
     public static final Creator<MeetingRoom> CREATOR = new Creator<MeetingRoom>() {
@@ -42,7 +37,6 @@ public class MeetingRoom implements Parcelable {
         }
     };
 
-
     public long getId() {
         return mId;
     }
@@ -55,17 +49,10 @@ public class MeetingRoom implements Parcelable {
         return mSeat;
     }
 
-    public String getImageCity() {
+    public int getImageCity() {
         return mImageCity;
     }
 
-    public String getHour() {
-        return mHour;
-    }
-
-    public  String getDay() {
-        return mDay;
-    }
 
 
     @Override
@@ -78,8 +65,6 @@ public class MeetingRoom implements Parcelable {
         dest.writeLong(mId);
         dest.writeString(mNameRoom);
         dest.writeLong(mSeat);
-        dest.writeString(mImageCity);
-        dest.writeString(mHour);
-        dest.writeString(mDay);
+        dest.writeInt(mImageCity);
     }
 }

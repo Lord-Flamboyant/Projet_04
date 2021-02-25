@@ -16,12 +16,10 @@
             android:layout_height="50dp"
             android:layout_marginStart="4dp"
             android:layout_marginTop="8dp"
-            android:background="#E1AFAF"
+            android:background="@drawable/ic_baseline_circle_24"
+            android:backgroundTint="@color/cTokyo"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_launcher_foreground"
-            tools:src="@color/purple_200"
-            tools:srcCompat="@android:drawable/ic_dialog_info" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/Name_Meeting"
