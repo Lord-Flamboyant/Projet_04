@@ -7,7 +7,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
 import android.view.View;
 
+import com.example.maru.Model.Meeting;
 import com.example.maru.Model.MeetingRoom;
+import com.example.maru.R;
 import com.example.maru.Room.MyRoomAdapter;
 import com.example.maru.databinding.ActivityMainBinding;
 
@@ -18,7 +20,7 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
 
-    public List<MeetingRoom> mMeetingRooms;
+    public List<Meeting> mMeetings;
 
     ActivityMainBinding activityMainBinding;
     MyRoomAdapter myRoomAdapter;
@@ -32,12 +34,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(view);
 
 
-        mMeetingRooms = new ArrayList<>();
-        mMeetingRooms.add(new MeetingRoom(9,"Nara",7,"Nara","16H30","mardi 3 mai"));
-        mMeetingRooms.add(new MeetingRoom(2,"Kyoto",8,"Kyoto","12H20","vendredi 10 avril"));
+        mMeetings = new ArrayList<>();
+        mMeetings.add(new Meeting("Reunion",1,"15h00","Lundi","aleyna@gmail.com","","Tokyo",R.color.cTokyo));
 
-
-        myRoomAdapter = new MyRoomAdapter(mMeetingRooms);
+        myRoomAdapter = new MyRoomAdapter(mMeetings);
         mRecyclerView = activityMainBinding.ListRoom1;
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mRecyclerView.setAdapter(myRoomAdapter);

@@ -8,4 +8,15 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
+    <color name="cTokyo">#B2EBF2</color>
+    <color name="cKyoto">#F06292</color>
+    <color name="cOsaka">#9575CD</color>
+    <color name="cHiroshima">#81C784</color>
+    <color name="cNagoya">#FFD54F</color>
+    <color name="cYokohama">#FF8A65</color>
+    <color name="cKobe">#81C784</color>
+    <color name="cSapporo">#4DB6AC</color>
+    <color name="cNara">#3F51B5</color>
+    <color name="cFukuoka">#827717</color>
+
 </resources>

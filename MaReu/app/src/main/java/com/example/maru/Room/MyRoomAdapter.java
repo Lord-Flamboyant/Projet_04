@@ -1,19 +1,20 @@
 package com.example.maru.Room;
 import android.view.LayoutInflater;;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
-import com.example.maru.Model.MeetingRoom;
+import com.example.maru.Model.Meeting;
 import com.example.maru.databinding.FragmentRoomBinding;
 import java.util.List;
 
-
 public class MyRoomAdapter extends RecyclerView.Adapter<MyRoomAdapter.MyViewHolder> {
 
-    List<MeetingRoom> mMeetingRooms;
+    List<Meeting> mMeetings;
 
-    public MyRoomAdapter(List<MeetingRoom> mMeetingRooms) {
-        this.mMeetingRooms = mMeetingRooms;
+    public MyRoomAdapter(List<Meeting> mMeetings) {
+        this.mMeetings = mMeetings;
     }
 
     @Override
@@ -25,12 +26,12 @@ public class MyRoomAdapter extends RecyclerView.Adapter<MyRoomAdapter.MyViewHold
 
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
-        holder.display(mMeetingRooms.get(position));
+        holder.display(mMeetings.get(position));
     }
 
     @Override
     public int getItemCount() {
-        return mMeetingRooms.size();
+        return mMeetings.size();
     }
 
     class MyViewHolder extends RecyclerView.ViewHolder {
@@ -38,7 +39,9 @@ public class MyRoomAdapter extends RecyclerView.Adapter<MyRoomAdapter.MyViewHold
         FragmentRoomBinding fragmentRoomBinding;
         private TextView mNamneMeeting;
         private TextView mNamePlace;
-
+        private ImageView mColorImage;
+        private TextView mHour;
+        private TextView mMail;
 
         MyViewHolder(FragmentRoomBinding fragmentRoomBinding) {
             super(fragmentRoomBinding.getRoot());
@@ -46,12 +49,17 @@ public class MyRoomAdapter extends RecyclerView.Adapter<MyRoomAdapter.MyViewHold
 
             mNamneMeeting = fragmentRoomBinding.NameMeeting;
             mNamePlace= fragmentRoomBinding.Place;
+            mColorImage = fragmentRoomBinding.Pastille;
+            mHour = fragmentRoomBinding.DateMeeting;
+            mMail = fragmentRoomBinding.MailEmployer;
 
         }
-        void display(MeetingRoom meetingRoom) {
-            mNamneMeeting.setText(meetingRoom.getNameRoom());
-            mNamePlace.setText(meetingRoom.getImageCity());
+        void display(Meeting meeting) {
+            mNamneMeeting.setText(meeting.getNameMeeting());
+            mNamePlace.setText(meeting.getLocalisation());
+            mHour.setText(meeting.getHourMeeting());
+            mColorImage.getBackground().setTint(ContextCompat.getColor(itemView.getContext(), meeting.getImageCity()));
+            mMail.setText(meeting.getListMail());
         }
-
     }
 }
