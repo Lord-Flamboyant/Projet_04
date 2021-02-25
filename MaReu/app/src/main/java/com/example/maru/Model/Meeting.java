@@ -5,8 +5,8 @@ import android.os.Parcelable;
 
 public class Meeting implements Parcelable {
 
-    private final String mNameMeeting;
     private final int mIdMeeting;
+    private final String mNameMeeting;
     private final String mHourMeeting;
     private final String mDay;
     private final String mListMail;
@@ -14,7 +14,7 @@ public class Meeting implements Parcelable {
     private final String mLocalisation;
     private final int mImageCity;
 
-    public Meeting(String NameMetting, int IdMeeting, String HourMeeting, String Day, String ListMail, String SujetMeeting, String Localisation, int ImageCity) {
+    public Meeting(int IdMeeting, String NameMetting, String HourMeeting, String Day, String ListMail, String SujetMeeting, String Localisation, int ImageCity) {
         mNameMeeting = NameMetting;
         mIdMeeting = IdMeeting;
         mHourMeeting = HourMeeting;
