@@ -23,10 +23,6 @@ public abstract class Dummy_RoomsGenerator {
 
 
 
-    static List<MeetingRoom> generateRooms() {
-    return new ArrayList<>(STATIC_ROOMS);
-    }
-
 
     public static List<Meeting> STATIC_MEETING = Arrays.asList(
             new Meeting(1,"Réunion 1","15h00","Lundi","aleyna@gmail.com","Les poules et les oeufs","Tokyo",R.color.cTokyo),

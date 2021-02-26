@@ -1,5 +1,6 @@
 package com.example.maru.Service;
 
+import com.example.maru.Model.Meeting;
 import com.example.maru.Model.MeetingRoom;
 
 import java.util.List;
@@ -7,11 +8,12 @@ import java.util.List;
 public interface MeetingApiService {
 
     /***Generate all meeting rooms */
-    List<MeetingRoom> getMeetingRooms();
+    List<Meeting> getMeetings();
 
     /***Delete meeting room */
-    void deleteRoom(MeetingRoom meetingRoom);
+    void deleteMeeting(Meeting meeting);
 
-    /***Create new meeting room */
-    void createMeetingRoom(MeetingRoom meetingRoom);
+    /***Create new meeting */
+    void createMeeting(Meeting meeting);
+
 }
