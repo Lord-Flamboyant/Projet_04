@@ -5,7 +5,7 @@ import android.os.Parcelable;
 
 public class Meeting implements Parcelable {
 
-    private final int mIdMeeting;
+    private final Long mIdMeeting;
     private final String mNameMeeting;
     private final String mHourMeeting;
     private final String mDay;
@@ -14,7 +14,7 @@ public class Meeting implements Parcelable {
     private final String mLocalisation;
     private final int mImageCity;
 
-    public Meeting(int IdMeeting, String NameMetting, String HourMeeting, String Day, String ListMail, String SujetMeeting, String Localisation, int ImageCity) {
+    public Meeting(Long IdMeeting, String NameMetting, String HourMeeting, String Day, String ListMail, String SujetMeeting, String Localisation, int ImageCity) {
         mNameMeeting = NameMetting;
         mIdMeeting = IdMeeting;
         mHourMeeting = HourMeeting;
@@ -27,7 +27,7 @@ public class Meeting implements Parcelable {
 
     protected Meeting(Parcel in) {
         mNameMeeting = in.readString();
-        mIdMeeting = in.readInt();
+        mIdMeeting = in.readLong();
         mHourMeeting = in.readString();
         mDay = in.readString();
         mListMail = in.readString();
@@ -52,7 +52,7 @@ public class Meeting implements Parcelable {
         return mNameMeeting;
     }
 
-    public int getIdMeeting() {
+    public Long getIdMeeting() {
         return mIdMeeting;
     }
 
@@ -88,7 +88,7 @@ public class Meeting implements Parcelable {
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(mNameMeeting);
-        dest.writeInt(mIdMeeting);
+        dest.writeLong(mIdMeeting);
         dest.writeString(mHourMeeting);
         dest.writeString(mDay);
         dest.writeString(mListMail);

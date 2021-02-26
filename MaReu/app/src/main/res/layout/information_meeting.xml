@@ -23,10 +23,11 @@
                 android:id="@+id/Name_Meeting"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="132dp"
                 android:layout_marginTop="4dp"
                 android:text="Réunion"
+                android:textSize="18sp"
                 android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -34,7 +35,7 @@
                 android:id="@+id/Date_Meeting_info"
                 android:layout_width="151dp"
                 android:layout_height="18dp"
-                android:layout_marginStart="4dp"
+                android:layout_marginStart="6dp"
                 android:layout_marginTop="16dp"
                 android:text="Vendredi 17 Novembre"
                 app:layout_constraintStart_toStartOf="parent"
@@ -44,7 +45,7 @@
                 android:id="@+id/Hour_Meeting_info"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="30dp"
+                android:layout_marginStart="15dp"
                 android:text="14h30"
                 app:layout_constraintStart_toEndOf="@+id/Date_Meeting_info"
                 app:layout_constraintTop_toTopOf="@+id/Date_Meeting_info" />
@@ -53,11 +54,19 @@
                 android:id="@+id/Place_Meeting_info"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="40dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginStart="6dp"
                 android:text="Tokyo"
+                app:layout_constraintStart_toEndOf="@+id/A_info"
+                app:layout_constraintTop_toTopOf="@+id/A_info" />
+
+            <TextView
+                android:id="@+id/A_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:text="à"
                 app:layout_constraintStart_toEndOf="@+id/Hour_Meeting_info"
-                app:layout_constraintTop_toBottomOf="@+id/Name_Meeting" />
+                app:layout_constraintTop_toTopOf="@+id/Hour_Meeting_info" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.cardview.widget.CardView>
@@ -79,9 +88,10 @@
                 android:id="@+id/Participate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="4dp"
+                android:layout_marginStart="6dp"
                 android:layout_marginTop="8dp"
                 android:text="Participant"
+                android:textSize="18sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -90,7 +100,7 @@
                 android:id="@+id/Name_Employer_info"
                 android:layout_width="370dp"
                 android:layout_height="70dp"
-                android:layout_marginStart="4dp"
+                android:layout_marginStart="6dp"
                 android:layout_marginTop="4dp"
                 android:text="TextView"
                 app:layout_constraintStart_toStartOf="parent"
@@ -115,9 +125,10 @@
                 android:id="@+id/Sujet_info"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="4dp"
+                android:layout_marginStart="6dp"
                 android:layout_marginTop="8dp"
-                android:text="TextView"
+                android:text="Sujet de la réunion"
+                android:textSize="18sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -126,6 +137,7 @@
                 android:id="@+id/Sujet_Meetinf_info"
                 android:layout_width="368dp"
                 android:layout_height="267dp"
+                android:layout_marginTop="8dp"
                 android:text="TextView"
                 app:layout_constraintStart_toStartOf="@+id/Sujet_info"
                 app:layout_constraintTop_toBottomOf="@+id/Sujet_info" />
