@@ -28,16 +28,12 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
+    <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/Name_Meeting_New"
-        style="@style/Widget.AppCompat.AutoCompleteTextView"
         android:layout_width="128dp"
         android:layout_height="39dp"
         android:layout_marginTop="4dp"
-        android:autoText="true"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Nom "
+        android:inputType="textShortMessage|textPersonName|text|textEmailAddress"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -66,7 +62,7 @@
         app:layout_constraintStart_toStartOf="@+id/Date_Meeting_new"
         app:layout_constraintTop_toBottomOf="@+id/Date_Meeting_new" />
 
-    <EditText
+    <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/Date_Meeting_new"
         android:layout_width="159dp"
         android:layout_height="39dp"

@@ -4,6 +4,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.core.content.ContextCompat;
+import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.maru.Model.Meeting;
 import com.example.maru.databinding.FragmentRoomBinding;
@@ -11,10 +12,10 @@ import java.util.List;
 
 public class MyRoomAdapter extends RecyclerView.Adapter<MyRoomAdapter.MyViewHolder> {
 
-    List<Meeting> mMeetings;
+    private final List<Meeting> mMeetings;
 
-    public MyRoomAdapter(List<Meeting> mMeetings) {
-        this.mMeetings = mMeetings;
+    public MyRoomAdapter(List<Meeting> items) {
+        this.mMeetings = items;
     }
 
     @Override
