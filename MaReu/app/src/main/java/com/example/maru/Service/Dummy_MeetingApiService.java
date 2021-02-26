@@ -8,6 +8,7 @@ import java.util.List;
 public class Dummy_MeetingApiService implements MeetingApiService {
 
     private List<Meeting> meetings = Dummy_RoomsGenerator.generateMeeting();
+    private List<MeetingRoom> rooms = Dummy_RoomsGenerator.Rooms();
 
 
     /***Generate all meeting rooms */
@@ -26,5 +27,10 @@ public class Dummy_MeetingApiService implements MeetingApiService {
     @Override
     public void createMeeting(Meeting meeting) {
         meetings.add(meeting);
+    }
+
+    /***Generate Rooms for Creation meeting */
+    public List<MeetingRoom> getRooms() {
+        return rooms;
     }
 }

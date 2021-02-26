@@ -16,4 +16,6 @@ public interface MeetingApiService {
     /***Create new meeting */
     void createMeeting(Meeting meeting);
 
+    /***generate room for creating meeting */
+    List<MeetingRoom> getRooms();
 }

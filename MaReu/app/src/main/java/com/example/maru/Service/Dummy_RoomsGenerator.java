@@ -21,15 +21,16 @@ public abstract class Dummy_RoomsGenerator {
             new MeetingRoom(10,"Fukuoka",5,R.color.cFukuoka)
     );
 
-
+    public static List<MeetingRoom> Rooms() {
+        return new ArrayList<>(STATIC_ROOMS);
+    }
 
 
     public static List<Meeting> STATIC_MEETING = Arrays.asList(
-            new Meeting(1,"Réunion 1","15h00","Lundi","aleyna@gmail.com","Les poules et les oeufs","Tokyo",R.color.cTokyo),
-            new Meeting(1,"Réunion 2","16h00","Mardi","aleyna@gmail.com, lulu@gmail.com","Prochaine réunion","Kyoto",R.color.cKyoto),
-            new Meeting(1,"Réunion 3","11h00","Mercredi","aleyna@gmail.com, lili@gmail.com, bob@gmail.com","Test d'application","Osaka",R.color.cOsaka)
+            new Meeting((long) 1,"Réunion 1","15h00","Lundi 10 mars","aleyna@gmail.com","Les poules et les oeufs","Tokyo",R.color.cTokyo),
+            new Meeting((long) 2,"Réunion 2","16h00","Mardi 14 avril","aleyna@gmail.com, lulu@gmail.com","Prochaine réunion","Kyoto",R.color.cKyoto),
+            new Meeting((long) 3,"Réunion 3","11h00","Mercredi 12 avril","aleyna@gmail.com, lili@gmail.com, bob@gmail.com","Test d'application","Osaka",R.color.cOsaka)
     );
-
 
     public static List<Meeting> generateMeeting() {
         return new ArrayList<> (STATIC_MEETING);

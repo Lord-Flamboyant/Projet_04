@@ -1,5 +1,6 @@
 package com.example.maru.Room;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -14,6 +15,7 @@ import com.example.maru.Model.Meeting;
 import com.example.maru.R;
 import com.example.maru.Service.MeetingApiService;
 import com.example.maru.Utils.ItemClickSupport;
+import com.example.maru.View.InformationMeeting;
 import com.example.maru.databinding.FragmentRoomBinding;
 import java.util.List;
 
@@ -79,7 +81,9 @@ public class RoomFragment extends Fragment {
                 .setOnItemClickListener(new ItemClickSupport.OnItemClickListener() {
                     @Override
                     public void onItemClicked(RecyclerView recyclerView, int position, View v) {
-                        Log.e(getClass().getSimpleName(),mMeetings.get(position).getNameMeeting());
+                        Intent intent = new Intent(getActivity(), InformationMeeting.class);
+                        intent.putExtra("id",mMeetings.get(position));
+                        startActivity(intent);
                     }
                 });
     }
