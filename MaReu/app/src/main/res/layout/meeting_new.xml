@@ -2,9 +2,17 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
+    <include
+        android:id="@+id/mytoolbarnew"
+        layout="@layout/toolbar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </include>
 
     <Button
         android:id="@+id/button2"
@@ -25,8 +33,8 @@
         android:text="Nom de la réunion"
         android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="@id/mytoolbarnew"
+        app:layout_constraintTop_toBottomOf="@+id/mytoolbarnew" />
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/Name_Meeting_New"
@@ -135,6 +143,7 @@
         android:layout_width="257dp"
         android:layout_height="18dp"
         android:layout_marginTop="6dp"
+        android:spinnerMode="dialog"
         app:layout_constraintStart_toStartOf="@+id/Localisation_newww"
         app:layout_constraintTop_toBottomOf="@+id/Localisation_newww" />
 

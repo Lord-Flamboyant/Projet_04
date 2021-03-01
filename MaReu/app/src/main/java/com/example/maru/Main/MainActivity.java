@@ -1,29 +1,17 @@
 package com.example.maru.Main;
-
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-import androidx.viewpager.widget.ViewPager;
-import androidx.viewpager2.widget.ViewPager2;
-
+import androidx.appcompat.widget.Toolbar;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.View;
-import com.example.maru.Model.Meeting;
 import com.example.maru.R;
 import com.example.maru.Room.ListPageAdapter;
-import com.example.maru.Room.MyRoomAdapter;
-import com.example.maru.Room.RoomFragment;
-import com.example.maru.Service.Dummy_RoomsGenerator;
 import com.example.maru.View.NewMeeting;
 import com.example.maru.databinding.ActivityMainBinding;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import static com.example.maru.Service.Dummy_RoomsGenerator.generateMeeting;
-
 public class MainActivity extends AppCompatActivity {
+
 
     ActivityMainBinding activityMainBinding;
     ListPageAdapter mListPageAdapter;
@@ -34,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
         activityMainBinding = ActivityMainBinding.inflate(getLayoutInflater());
         View view = activityMainBinding.getRoot();
         setContentView(view);
+        configureToolbar();
 
         mListPageAdapter = new ListPageAdapter(getSupportFragmentManager());
         activityMainBinding.container.setAdapter(mListPageAdapter);
@@ -48,4 +37,17 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main_menu,menu);
+        return true;
+    }
+
+
+    private void configureToolbar() {
+        Toolbar toolbar = activityMainBinding.mytoolbar.toolbar;
+        setSupportActionBar(toolbar);
+    }
 }
+
+/// TODO: make research option
