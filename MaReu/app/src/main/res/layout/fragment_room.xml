@@ -18,7 +18,7 @@
             android:layout_marginStart="4dp"
             android:layout_marginTop="8dp"
             android:background="@drawable/ic_baseline_circle_24"
-            android:backgroundTint="@color/cTokyo"
+            android:backgroundTint="@color/Tokyo"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 

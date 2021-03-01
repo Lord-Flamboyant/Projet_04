@@ -9,16 +9,16 @@ import java.util.List;
 public abstract class Dummy_RoomsGenerator {
 
     public static List<MeetingRoom> STATIC_ROOMS = Arrays.asList(
-            new MeetingRoom(1,"Tokyo",3, R.color.cTokyo),
-            new MeetingRoom(2,"Kyoto",8,R.color.cKyoto),
-            new MeetingRoom(3,"Osaka",5,R.color.cOsaka),
-            new MeetingRoom(4,"Hiroshima",4,R.color.cHiroshima),
-            new MeetingRoom(5,"Nagoya",10,R.color.cNagoya),
-            new MeetingRoom(6,"Yokohama",9,R.color.cYokohama),
-            new MeetingRoom(7,"Kobe",8,R.color.cKobe),
-            new MeetingRoom(8,"Sapporo",6,R.color.cSapporo),
-            new MeetingRoom(9,"Nara",7,R.color.cNara),
-            new MeetingRoom(10,"Fukuoka",5,R.color.cFukuoka)
+            new MeetingRoom(1,"Tokyo", R.color.Tokyo),
+            new MeetingRoom(2,"Kyoto",R.color.Kyoto),
+            new MeetingRoom(3,"Osaka",R.color.Osaka),
+            new MeetingRoom(4,"Hiroshima",R.color.Hiroshima),
+            new MeetingRoom(5,"Nagoya",R.color.Nagoya),
+            new MeetingRoom(6,"Yokohama",R.color.Yokohama),
+            new MeetingRoom(7,"Kobe",R.color.Kobe),
+            new MeetingRoom(8,"Sapporo",R.color.Sapporo),
+            new MeetingRoom(9,"Nara",R.color.Nara),
+            new MeetingRoom(10,"Fukuoka",R.color.Fukuoka)
     );
 
     public static List<MeetingRoom> Rooms() {
@@ -27,9 +27,9 @@ public abstract class Dummy_RoomsGenerator {
 
 
     public static List<Meeting> STATIC_MEETING = Arrays.asList(
-            new Meeting((long) 1,"Réunion 1","15h00","Lundi 10 mars","aleyna@gmail.com","Les poules et les oeufs","Tokyo",R.color.cTokyo),
-            new Meeting((long) 2,"Réunion 2","16h00","Mardi 14 avril","aleyna@gmail.com, lulu@gmail.com","Prochaine réunion","Kyoto",R.color.cKyoto),
-            new Meeting((long) 3,"Réunion 3","11h00","Mercredi 12 avril","aleyna@gmail.com, lili@gmail.com, bob@gmail.com","Test d'application","Osaka",R.color.cOsaka)
+            new Meeting((long) 1,"Réunion 1","15h00","Lundi 10 mars","aleyna@gmail.com","Les poules et les oeufs","Tokyo",R.color.Tokyo),
+            new Meeting((long) 2,"Réunion 2","16h00","Mardi 14 avril","aleyna@gmail.com, lulu@gmail.com","Prochaine réunion","Kyoto",R.color.Kyoto),
+            new Meeting((long) 3,"Réunion 3","11h00","Mercredi 12 avril","aleyna@gmail.com, lili@gmail.com, bob@gmail.com","Test d'application","Osaka",R.color.Osaka)
     );
 
     public static List<Meeting> generateMeeting() {

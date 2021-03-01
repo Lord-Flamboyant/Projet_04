@@ -7,21 +7,18 @@ public class MeetingRoom implements Parcelable {
 
     private final long mId;
     private final String mNameRoom;
-    private final long mSeat;
     private final int mImageCity;
 
 
-    public MeetingRoom(long id, String nameRoom, long seatPlace, int imageCity) {
+    public MeetingRoom(long id, String nameRoom, int imageCity) {
         mId = id;
         mNameRoom = nameRoom;
-        mSeat = seatPlace;
         mImageCity = imageCity;
     };
 
     protected MeetingRoom(Parcel in) {
         mId = in.readLong();
         mNameRoom = in.readString();
-        mSeat = in.readLong();
         mImageCity = in.readInt();
     }
 
@@ -45,10 +42,6 @@ public class MeetingRoom implements Parcelable {
         return mNameRoom;
     }
 
-    public long getSeat() {
-        return mSeat;
-    }
-
     public int getImageCity() {
         return mImageCity;
     }
@@ -64,7 +57,6 @@ public class MeetingRoom implements Parcelable {
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeLong(mId);
         dest.writeString(mNameRoom);
-        dest.writeLong(mSeat);
         dest.writeInt(mImageCity);
     }
 }
