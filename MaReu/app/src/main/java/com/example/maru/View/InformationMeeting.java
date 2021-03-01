@@ -1,12 +1,14 @@
 package com.example.maru.View;
-
 import androidx.appcompat.app.AppCompatActivity;
-
+import androidx.appcompat.widget.Toolbar;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
-
+import com.example.maru.Main.MainActivity;
 import com.example.maru.Model.Meeting;
+import com.example.maru.R;
 import com.example.maru.databinding.InformationMeetingBinding;
 
 public class InformationMeeting extends AppCompatActivity {
@@ -19,6 +21,7 @@ public class InformationMeeting extends AppCompatActivity {
         informationMeetingBinding = InformationMeetingBinding.inflate(getLayoutInflater());
         View view = informationMeetingBinding.getRoot();
         setContentView(view);
+        configureToolbar();
 
         Intent intent = getIntent();
         Meeting meeting = intent.getParcelableExtra("id");
@@ -29,6 +32,28 @@ public class InformationMeeting extends AppCompatActivity {
         informationMeetingBinding.PlaceMeetingInfo.setText(meeting.getLocalisation());
         informationMeetingBinding.NameEmployerInfo.setText(meeting.getListMail());
         informationMeetingBinding.SujetMeetinfInfo.setText(meeting.getSujetMeeting());
+    }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.information_menu,menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.back:
+                Intent back = new Intent(InformationMeeting.this, MainActivity.class);
+                startActivity(back);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    private void configureToolbar() {
+        Toolbar toolbar = informationMeetingBinding.mytoolbarinfo.toolbar;
+        setSupportActionBar(toolbar);
     }
 }
