@@ -20,4 +20,6 @@ public class ListPageAdapter extends FragmentPagerAdapter {
     public int getCount() {
         return 1;
     }
+
+
 }

@@ -45,8 +45,14 @@ public class MeetingRoom implements Parcelable {
     public int getImageCity() {
         return mImageCity;
     }
-
-
+    @Override
+    public String toString(){
+        return this.getNameRoom();
+    }
+    @Override
+    public int hashCode(){
+        return this.getImageCity();
+    }
 
     @Override
     public int describeContents() {
