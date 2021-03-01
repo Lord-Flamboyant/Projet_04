@@ -52,7 +52,7 @@ public class Meeting implements Parcelable {
         return mNameMeeting;
     }
 
-    public Long getIdMeeting() {
+    public long getIdMeeting() {
         return mIdMeeting;
     }
 

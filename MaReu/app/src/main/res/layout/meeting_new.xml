@@ -35,6 +35,7 @@
         android:layout_marginTop="4dp"
         android:inputType="textShortMessage|textPersonName|text|textEmailAddress"
         android:textSize="14sp"
+        android:hint="Réunion"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/Nameee"
@@ -62,26 +63,24 @@
         app:layout_constraintStart_toStartOf="@+id/Date_Meeting_new"
         app:layout_constraintTop_toBottomOf="@+id/Date_Meeting_new" />
 
-    <com.google.android.material.textfield.TextInputEditText
+    <TextView
         android:id="@+id/Date_Meeting_new"
-        android:layout_width="159dp"
-        android:layout_height="39dp"
+        android:layout_width="171dp"
+        android:layout_height="27dp"
         android:layout_marginTop="6dp"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Jeudi 22 Aout"
+        android:hint="Date"
         android:textSize="14sp"
         app:layout_constraintStart_toStartOf="@+id/Date_Meetinggg"
         app:layout_constraintTop_toBottomOf="@+id/Date_Meetinggg" />
 
-    <EditText
+
+    <TextView
         android:id="@+id/Hour_Meeting_new"
-        android:layout_width="72dp"
-        android:layout_height="45dp"
+        android:layout_width="149dp"
+        android:layout_height="23dp"
         android:layout_marginTop="6dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="11h30"
+        android:hint="heure"
         android:textSize="14sp"
         app:layout_constraintStart_toStartOf="@+id/Hourrrr"
         app:layout_constraintTop_toBottomOf="@+id/Hourrrr" />
@@ -104,7 +103,7 @@
         android:layout_marginTop="6dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Address mail"
+        android:hint="Adresse mail "
         android:textSize="14sp"
         app:layout_constraintStart_toStartOf="@+id/Participantt"
         app:layout_constraintTop_toBottomOf="@+id/Participantt" />

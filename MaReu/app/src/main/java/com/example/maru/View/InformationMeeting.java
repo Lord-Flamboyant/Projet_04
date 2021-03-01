@@ -25,7 +25,7 @@ public class InformationMeeting extends AppCompatActivity {
 
         informationMeetingBinding.NameMeeting.setText(meeting.getNameMeeting());
         informationMeetingBinding.DateMeetingInfo.setText(meeting.getDay());
-        informationMeetingBinding.HourMeetingInfo.setText((meeting.getHourMeeting()));
+        informationMeetingBinding.HourMeetingInfo.setText(meeting.getHourMeeting());
         informationMeetingBinding.PlaceMeetingInfo.setText(meeting.getLocalisation());
         informationMeetingBinding.NameEmployerInfo.setText(meeting.getListMail());
         informationMeetingBinding.SujetMeetinfInfo.setText(meeting.getSujetMeeting());

@@ -1,21 +1,33 @@
 package com.example.maru.View;
 import androidx.appcompat.app.AppCompatActivity;
+import android.annotation.SuppressLint;
+import android.app.DatePickerDialog;
+import android.app.TimePickerDialog;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.DatePicker;
+import android.widget.TimePicker;
 import com.example.maru.Main.DI;
 import com.example.maru.Model.Meeting;
-import com.example.maru.Model.MeetingRoom;
 import com.example.maru.R;
 import com.example.maru.Service.MeetingApiService;
 import com.example.maru.databinding.MeetingNewBinding;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import static com.example.maru.R.layout.support_simple_spinner_dropdown_item;
 
 public class NewMeeting extends AppCompatActivity {
 
     MeetingNewBinding meetingNewBinding;
     private MeetingApiService meetingApiService;
-    MeetingRoom mMeetingRoom;
+    int mhour, mminute;
+    Calendar mCalendar = Calendar.getInstance();
+    int day = mCalendar.get(Calendar.DAY_OF_MONTH);
+    int month = mCalendar.get(Calendar.MONTH);
+    int year = mCalendar.get(Calendar.YEAR);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +42,53 @@ public class NewMeeting extends AppCompatActivity {
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, support_simple_spinner_dropdown_item,rooms);
         meetingNewBinding.LocalisationNew.setAdapter(adapter);
 
+        /***Hour select*/
+        meetingNewBinding.HourMeetingNew.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                TimePickerDialog timerPikerDialog = new TimePickerDialog(
+                        NewMeeting.this,
+                        new TimePickerDialog.OnTimeSetListener() {
+                            @Override
+                            public void onTimeSet(TimePicker view,int hourOfDay, int minute) {
+                                mhour = hourOfDay;
+                                mminute = minute;
+                                String time = mhour + ":" + mminute;
+                                @SuppressLint("SimpleDateFormat") SimpleDateFormat f24Hours = new SimpleDateFormat(
+                                        "HH:mm"
+                                );
+                                try {
+                                    Date date = f24Hours.parse(time);
+                                    @SuppressLint("SimpleDateFormat") SimpleDateFormat f12Hours = new SimpleDateFormat(
+                                            "hh:mm aa"
+                                    );
+                                    meetingNewBinding.HourMeetingNew.setText(f12Hours.format(date));
+                                } catch (ParseException e) {
+                                    e.printStackTrace();
+                                }
+                            }
+                        },12,0,false
+                );
+                timerPikerDialog.updateTime(mhour,mminute);
+                timerPikerDialog.show();
+            }
+        });
 
+        /***Day Selecteur */
+        meetingNewBinding.DateMeetingNew.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DatePickerDialog datePickerDialog = new DatePickerDialog(
+                        NewMeeting.this,
+                        new DatePickerDialog.OnDateSetListener() {
+                            @Override
+                            public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                                meetingNewBinding.DateMeetingNew.setText(dayOfMonth+ " " + month + " " +year);
+                            }
+                        },year,month,day);
+                datePickerDialog.show();
+            }
+        });
 
         /***Creation new Meeting*/
         meetingNewBinding.button2.setOnClickListener(new View.OnClickListener() {
@@ -39,12 +97,12 @@ public class NewMeeting extends AppCompatActivity {
                 Meeting meeting = new Meeting(
                         System.currentTimeMillis(),
                         meetingNewBinding.NameMeetingNew.getEditableText().toString(),
-                        meetingNewBinding.HourMeetingNew.getEditableText().toString(),
-                        meetingNewBinding.DateMeetingNew.getEditableText().toString(),
+                        meetingNewBinding.HourMeetingNew.getText().toString(),
+                        meetingNewBinding.DateMeetingNew.getText().toString(),
                         meetingNewBinding.MailMeetinNew.getEditableText().toString(),
                         meetingNewBinding.SujetMeetingNew.getEditableText().toString(),
-                        "Tokyo",
-                        R.color.cTokyo
+                        "Tokyo", /// TODO: make we can take a meeting room with localisation and color
+                        R.color.Tokyo
 
                 );
                 meetingApiService.createMeeting(meeting);
