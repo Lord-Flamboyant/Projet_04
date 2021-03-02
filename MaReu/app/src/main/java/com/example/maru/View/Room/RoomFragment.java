@@ -1,4 +1,4 @@
-package com.example.maru.Room;
+package com.example.maru.View.Room;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -6,12 +6,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.maru.Main.DI;
-import com.example.maru.Model.DeleteMeetingEvent;
 import com.example.maru.Model.Meeting;
 import com.example.maru.R;
 import com.example.maru.Service.MeetingApiService;

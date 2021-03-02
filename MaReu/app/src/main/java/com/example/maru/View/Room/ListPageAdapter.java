@@ -1,4 +1,4 @@
-package com.example.maru.Room;
+package com.example.maru.View.Room;
 
 
 import androidx.fragment.app.Fragment;

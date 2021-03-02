@@ -34,10 +34,10 @@ public class NewMeeting extends AppCompatActivity {
     List<MeetingRoom> mMeetingRooms;
     private MeetingApiService meetingApiService;
     int mhour, mminute;
-    Calendar mCalendar = Calendar.getInstance();
-    int day = mCalendar.get(Calendar.DAY_OF_MONTH);
-    int month = mCalendar.get(Calendar.MONTH);
-    int year = mCalendar.get(Calendar.YEAR);
+    Calendar calendar = Calendar.getInstance();
+    int day = calendar.get(Calendar.DAY_OF_MONTH);
+    int month = calendar.get(Calendar.MONTH);
+    int year =calendar.get(Calendar.YEAR);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,8 +48,7 @@ public class NewMeeting extends AppCompatActivity {
         meetingApiService = DI.getMeetingApiService();
         configureToolbar();
 
-        /***Creation spinner*/
-        List<MeetingRoom> meetingRoom = Dummy_RoomsGenerator.Rooms();
+        /***select meeting room*/
         this.mMeetingRooms = Dummy_RoomsGenerator.STATIC_ROOMS;
         ArrayAdapter<MeetingRoom> adapter = new ArrayAdapter<MeetingRoom>(this, android.R.layout.simple_spinner_item,mMeetingRooms);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -67,7 +66,7 @@ public class NewMeeting extends AppCompatActivity {
                 MeetingRoom meetingRoom= (MeetingRoom) adapter.getItem(position);}
         });
 
-        /***Hour select*/
+        /***select hour*/
         meetingNewBinding.HourMeetingNew.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -85,21 +84,21 @@ public class NewMeeting extends AppCompatActivity {
                                 try {
                                     Date date = f24Hours.parse(time);
                                     @SuppressLint("SimpleDateFormat") SimpleDateFormat f12Hours = new SimpleDateFormat(
-                                            "hh:mm aa"
+                                            "hh:mm"
                                     );
-                                    meetingNewBinding.HourMeetingNew.setText(f12Hours.format(date));
+                                    meetingNewBinding.HourMeetingNew.setText(f24Hours.format(date));
                                 } catch (ParseException e) {
                                     e.printStackTrace();
                                 }
                             }
-                        },12,0,false
+                        },12,0,true
                 );
                 timerPikerDialog.updateTime(mhour,mminute);
                 timerPikerDialog.show();
             }
         });
 
-        /***Day Selecteur */
+        /***select date */
         meetingNewBinding.DateMeetingNew.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -108,14 +107,14 @@ public class NewMeeting extends AppCompatActivity {
                         new DatePickerDialog.OnDateSetListener() {
                             @Override
                             public void onDateSet(DatePicker view, int year,int month, int dayOfMonth) {
-                                meetingNewBinding.DateMeetingNew.setText(dayOfMonth+ " " + month + " " +year);
+                                meetingNewBinding.DateMeetingNew.setText(dayOfMonth+ " " +(month+1)+ " " +year);
                             }
                         },year,month,day);
                 datePickerDialog.show();
             }
         });
 
-        /***Creation new Meeting*/
+        /***Creating new Meeting*/
         meetingNewBinding.button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -134,10 +133,10 @@ public class NewMeeting extends AppCompatActivity {
             }
         });
     }
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.information_menu,menu);
-        return true;
+
+    private void configureToolbar() {
+        Toolbar toolbar = meetingNewBinding.mytoolbarnew.toolbar;
+        setSupportActionBar(toolbar);
     }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -150,8 +149,10 @@ public class NewMeeting extends AppCompatActivity {
                 return super.onOptionsItemSelected(item);
         }
     }
-    private void configureToolbar() {
-        Toolbar toolbar = meetingNewBinding.mytoolbarnew.toolbar;
-        setSupportActionBar(toolbar);
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.information_menu,menu);
+        return true;
     }
 }

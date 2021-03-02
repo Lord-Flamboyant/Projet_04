@@ -1,4 +1,4 @@
-package com.example.maru.Room;
+package com.example.maru.View.Room;
 import android.view.LayoutInflater;;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,7 +17,6 @@ import java.util.List;
 public class MyRoomAdapter extends RecyclerView.Adapter<MyRoomAdapter.MyViewHolder> {
 
     private final List<Meeting> mMeetings;
-
     public MyRoomAdapter(List<Meeting> items) {
         this.mMeetings = items;
     }
@@ -27,7 +26,6 @@ public class MyRoomAdapter extends RecyclerView.Adapter<MyRoomAdapter.MyViewHold
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
         FragmentRoomBinding fragmentRoomBinding = FragmentRoomBinding.inflate(layoutInflater,parent,false);
         return new MyViewHolder(fragmentRoomBinding);
-
     }
 
     @Override
@@ -37,7 +35,6 @@ public class MyRoomAdapter extends RecyclerView.Adapter<MyRoomAdapter.MyViewHold
                 .load(mMeetings.get(position).getImageCity())
                 .apply(RequestOptions.circleCropTransform())
                 .into(holder.mImageView);
-
         holder.fragmentRoomBinding.TrashCan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -47,17 +44,12 @@ public class MyRoomAdapter extends RecyclerView.Adapter<MyRoomAdapter.MyViewHold
         });
     }
 
-
-
-
     @Override
     public int getItemCount() {
         return mMeetings.size();
     }
 
     class MyViewHolder extends RecyclerView.ViewHolder {
-
-
         FragmentRoomBinding fragmentRoomBinding;
         private TextView mNamneMeeting;
         private TextView mNamePlace;
@@ -74,7 +66,6 @@ public class MyRoomAdapter extends RecyclerView.Adapter<MyRoomAdapter.MyViewHold
             mImageView = fragmentRoomBinding.Pastille;
             mHour = fragmentRoomBinding.DateMeeting;
             mMail = fragmentRoomBinding.MailEmployer;
-
         }
         void display(Meeting meeting) {
             mNamneMeeting.setText(meeting.getNameMeeting());
@@ -84,5 +75,4 @@ public class MyRoomAdapter extends RecyclerView.Adapter<MyRoomAdapter.MyViewHold
             mMail.setText(meeting.getListMail());
         }
     }
-
 }

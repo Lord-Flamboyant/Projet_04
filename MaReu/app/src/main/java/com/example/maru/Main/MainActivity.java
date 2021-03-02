@@ -6,12 +6,11 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
 import com.example.maru.R;
-import com.example.maru.Room.ListPageAdapter;
+import com.example.maru.View.Room.ListPageAdapter;
 import com.example.maru.View.NewMeeting;
 import com.example.maru.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
-
 
     ActivityMainBinding activityMainBinding;
     ListPageAdapter mListPageAdapter;
@@ -26,8 +25,6 @@ public class MainActivity extends AppCompatActivity {
 
         mListPageAdapter = new ListPageAdapter(getSupportFragmentManager());
         activityMainBinding.container.setAdapter(mListPageAdapter);
-
-
         activityMainBinding.buttonAddMeeting.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -42,7 +39,6 @@ public class MainActivity extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.main_menu,menu);
         return true;
     }
-
 
     private void configureToolbar() {
         Toolbar toolbar = activityMainBinding.mytoolbar.toolbar;
