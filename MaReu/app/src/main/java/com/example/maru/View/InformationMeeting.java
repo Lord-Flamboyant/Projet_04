@@ -1,11 +1,13 @@
 package com.example.maru.View;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+
 import com.example.maru.Main.MainActivity;
 import com.example.maru.Model.Meeting;
 import com.example.maru.R;
@@ -53,7 +55,8 @@ public class InformationMeeting extends AppCompatActivity {
     }
 
     private void configureToolbar() {
-        Toolbar toolbar = informationMeetingBinding.mytoolbarinfo.toolbar;
+        Toolbar toolbar = informationMeetingBinding.mytoolbarinfo.toolBar;
         setSupportActionBar(toolbar);
+
     }
 }

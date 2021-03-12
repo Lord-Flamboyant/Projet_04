@@ -4,11 +4,11 @@
 
     <item
         android:id="@+id/back"
-        android:icon="@drawable/ic_baseline_keyboard_backspace_24"
-        android:iconTint="@color/white"
+        android:icon="@drawable/ic_baseline_arrow_back_24"
         android:orderInCategory="0"
         android:title="back"
         actionbarcompat_mse:showAsAction="ifRoom">
+
     </item>
 
 </menu>

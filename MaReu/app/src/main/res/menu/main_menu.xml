@@ -1,20 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:actionbarcompat_mse="http://schemas.android.com/tools"
+<menu xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:actionbarcompat_mse="http://schemas.android.com/apk/res-auto"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+   <item
+       android:id="@+id/search_date"
+       android:icon="@drawable/ic_baseline_calendar_today_24"
+       android:title="recherche par date"
+       actionbarcompat_mse:actionViewClass="androidx.appcompat.widget.SearchView"
+       actionbarcompat_mse:showAsAction="ifRoom|collapseActionView" />
 
-    <item
-        android:id="@+id/research_hour"
-        android:title="Recherche par heure">
-    </item>
-
-    <item
-        android:id="@+id/research_localisation"
-        android:title="Recherche par Lieu"
-        >
-
-    </item>
+   <item
+       android:id="@+id/action_search"
+       android:icon="@drawable/ic_baseline_location_on_24"
+       android:title="search"
+       actionbarcompat_mse:actionViewClass="androidx.appcompat.widget.SearchView"
+       actionbarcompat_mse:showAsAction="ifRoom|collapseActionView" />
 
 
 </menu>

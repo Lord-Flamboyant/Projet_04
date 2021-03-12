@@ -1,6 +1,5 @@
 package com.example.maru.View;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
+
 import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
@@ -14,6 +13,10 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.DatePicker;
 import android.widget.TimePicker;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+
 import com.example.maru.Main.DI;
 import com.example.maru.Main.MainActivity;
 import com.example.maru.Model.Meeting;
@@ -22,6 +25,7 @@ import com.example.maru.R;
 import com.example.maru.Service.Dummy_RoomsGenerator;
 import com.example.maru.Service.MeetingApiService;
 import com.example.maru.databinding.MeetingNewBinding;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -63,7 +67,7 @@ public class NewMeeting extends AppCompatActivity {
             }
             private void onItemSelectedHandler(AdapterView<?> adapterView, View view, int position, long id) {
                 Adapter adapter = adapterView.getAdapter();
-                MeetingRoom meetingRoom= (MeetingRoom) adapter.getItem(position);}
+                MeetingRoom meetingRoom = (MeetingRoom) adapter.getItem(position);}
         });
 
         /***select hour*/
@@ -107,7 +111,7 @@ public class NewMeeting extends AppCompatActivity {
                         new DatePickerDialog.OnDateSetListener() {
                             @Override
                             public void onDateSet(DatePicker view, int year,int month, int dayOfMonth) {
-                                meetingNewBinding.DateMeetingNew.setText(dayOfMonth+ " " +(month+1)+ " " +year);
+                                meetingNewBinding.DateMeetingNew.setText(dayOfMonth+ "/" +(month+1)+ "/" +year);
                             }
                         },year,month,day);
                 datePickerDialog.show();
@@ -135,7 +139,7 @@ public class NewMeeting extends AppCompatActivity {
     }
 
     private void configureToolbar() {
-        Toolbar toolbar = meetingNewBinding.mytoolbarnew.toolbar;
+        Toolbar toolbar = meetingNewBinding.mytoolbarnew.toolBar;
         setSupportActionBar(toolbar);
     }
     @Override
@@ -156,3 +160,9 @@ public class NewMeeting extends AppCompatActivity {
         return true;
     }
 }
+
+/***     private void configureToolbar() {
+ Toolbar toolbar = meetingNewBinding.mytoolbarnew.toolBar;
+ setSupportActionBar(toolbar);
+ }
+ */
