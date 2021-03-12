@@ -43,7 +43,7 @@
                 android:id="@+id/Date_Meeting_info"
                 android:layout_width="151dp"
                 android:layout_height="18dp"
-                android:layout_marginStart="6dp"
+                android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
                 android:text="Vendredi 17 Novembre"
                 app:layout_constraintStart_toStartOf="parent"
@@ -53,9 +53,9 @@
                 android:id="@+id/Hour_Meeting_info"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="15dp"
                 android:text="14h30"
-                app:layout_constraintStart_toEndOf="@+id/Date_Meeting_info"
+                app:layout_constraintEnd_toEndOf="@+id/Name_Meeting"
+                app:layout_constraintStart_toStartOf="@+id/Name_Meeting"
                 app:layout_constraintTop_toTopOf="@+id/Date_Meeting_info" />
 
             <TextView
@@ -71,7 +71,7 @@
                 android:id="@+id/A_info"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="30dp"
+                android:layout_marginStart="80dp"
                 android:text="à"
                 app:layout_constraintStart_toEndOf="@+id/Hour_Meeting_info"
                 app:layout_constraintTop_toTopOf="@+id/Hour_Meeting_info" />
