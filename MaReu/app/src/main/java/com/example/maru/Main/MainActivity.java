@@ -15,7 +15,6 @@ public class MainActivity extends AppCompatActivity {
 
     ActivityMainBinding activityMainBinding;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,7 +22,6 @@ public class MainActivity extends AppCompatActivity {
         View view = activityMainBinding.getRoot();
         setContentView(view);
         configureToolbar();
-
 
         activityMainBinding.container.setAdapter(new ListPageAdapter(this));
 
@@ -40,11 +38,7 @@ public class MainActivity extends AppCompatActivity {
     private void configureToolbar() {
         Toolbar toolbar = activityMainBinding.mytoolbar.toolBar;
         setSupportActionBar(toolbar);
-
     }
-
-
 }
 
-/// TODO: make research option
 /// TODO: make design

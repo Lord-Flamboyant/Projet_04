@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include
+        android:id="@+id/mytoolbarnew"
+        layout="@layout/toolbar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </include>
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="140dp"
+        android:layout_height="63dp"
+        android:layout_marginTop="30dp"
+        android:text="Créer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Localisation_new" />
+
+    <TextView
+        android:id="@+id/Nameee"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="20dp"
+        android:text="Nom de la réunion"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@id/mytoolbarnew"
+        app:layout_constraintTop_toBottomOf="@+id/mytoolbarnew" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/Name_Meeting_New"
+        android:layout_width="128dp"
+        android:layout_height="39dp"
+        android:layout_marginTop="20dp"
+        android:hint="Réunion"
+        android:inputType="textShortMessage|textPersonName|text|textEmailAddress"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/Nameee"
+        app:layout_constraintTop_toBottomOf="@+id/Nameee" />
+
+    <TextView
+        android:id="@+id/Date_Meetinggg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Date de la réunion"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/Name_Meeting_New"
+        app:layout_constraintTop_toBottomOf="@+id/Name_Meeting_New" />
+
+    <TextView
+        android:id="@+id/Hourrrr"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Heure de la réunion"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/Date_Meeting_new"
+        app:layout_constraintTop_toBottomOf="@+id/Date_Meeting_new" />
+
+    <TextView
+        android:id="@+id/Date_Meeting_new"
+        android:layout_width="171dp"
+        android:layout_height="27dp"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:hint="Date"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="@+id/Date_Meetinggg"
+        app:layout_constraintTop_toBottomOf="@+id/Date_Meetinggg" />
+
+
+    <TextView
+        android:id="@+id/Hour_Meeting_new"
+        android:layout_width="149dp"
+        android:layout_height="23dp"
+        android:layout_marginTop="20dp"
+        android:hint="heure"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="@+id/Hourrrr"
+        app:layout_constraintTop_toBottomOf="@+id/Hourrrr" />
+
+    <TextView
+        android:id="@+id/Participantt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Participant"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/Hourrrr"
+        app:layout_constraintTop_toBottomOf="@+id/Hour_Meeting_new" />
+
+    <EditText
+        android:id="@+id/Mail_Meetin_new"
+        android:layout_width="198dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:hint="Adresse mail "
+        android:inputType="textPersonName"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="@+id/Participantt"
+        app:layout_constraintTop_toBottomOf="@+id/Participantt" />
+
+    <TextView
+        android:id="@+id/Sujet_Meetinggg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Sujet de la réunion"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/Mail_Meetin_new"
+        app:layout_constraintTop_toBottomOf="@+id/Mail_Meetin_new" />
+
+    <EditText
+        android:id="@+id/Sujet_Meeting_new"
+        android:layout_width="220dp"
+        android:layout_height="74dp"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:gravity="start|top"
+        android:inputType="textMultiLine"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="@+id/Sujet_Meetinggg"
+        app:layout_constraintTop_toBottomOf="@+id/Sujet_Meetinggg" />
+
+    <Spinner
+        android:id="@+id/Localisation_new"
+        android:layout_width="257dp"
+        android:layout_height="18dp"
+        android:layout_marginTop="20dp"
+        android:spinnerMode="dialog"
+        app:layout_constraintStart_toStartOf="@+id/Localisation_newww"
+        app:layout_constraintTop_toBottomOf="@+id/Localisation_newww" />
+
+    <TextView
+        android:id="@+id/Localisation_newww"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Salle"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/Sujet_Meeting_new"
+        app:layout_constraintTop_toBottomOf="@+id/Sujet_Meeting_new" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

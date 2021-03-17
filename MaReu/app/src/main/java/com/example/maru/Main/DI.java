@@ -12,4 +12,9 @@ public class DI {
         return service;
     }
 
+    /***Instance for make test*/
+    public static MeetingApiService getTestMeetingApiService() {
+        return new Dummy_MeetingApiService();
+    }
+
 }
