@@ -41,4 +41,4 @@ public class MainActivity extends AppCompatActivity {
     }
 }
 
-/// TODO: make design
+/// TODO: make responsive

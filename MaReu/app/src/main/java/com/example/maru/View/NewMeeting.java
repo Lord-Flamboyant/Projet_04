@@ -37,7 +37,7 @@ public class NewMeeting extends AppCompatActivity {
     MeetingNewBinding meetingNewBinding;
     List<MeetingRoom> mMeetingRooms;
     private MeetingApiService meetingApiService;
-    int mhour, mminute;
+    int mHour, mMinute;
     Calendar calendar = Calendar.getInstance();
     int day = calendar.get(Calendar.DAY_OF_MONTH);
     int month = calendar.get(Calendar.MONTH);
@@ -79,9 +79,9 @@ public class NewMeeting extends AppCompatActivity {
                         new TimePickerDialog.OnTimeSetListener() {
                             @Override
                             public void onTimeSet(TimePicker view,int hourOfDay, int minute) {
-                                mhour = hourOfDay;
-                                mminute = minute;
-                                String time = mhour + ":" + mminute;
+                                mHour = hourOfDay;
+                                mMinute = minute;
+                                String time = mHour + ":" + mMinute;
                                 @SuppressLint("SimpleDateFormat") SimpleDateFormat f24Hours = new SimpleDateFormat(
                                         "HH:mm"
                                 );
@@ -97,7 +97,7 @@ public class NewMeeting extends AppCompatActivity {
                             }
                         },12,0,true
                 );
-                timerPikerDialog.updateTime(mhour,mminute);
+                timerPikerDialog.updateTime(mHour,mMinute);
                 timerPikerDialog.show();
             }
         });
@@ -160,9 +160,3 @@ public class NewMeeting extends AppCompatActivity {
         return true;
     }
 }
-
-/***     private void configureToolbar() {
- Toolbar toolbar = meetingNewBinding.mytoolbarnew.toolBar;
- setSupportActionBar(toolbar);
- }
- */

@@ -207,7 +207,7 @@ public class InstrumentedTest {
 
         onView(allOf(ViewMatchers.withId(R.id.List_rooms_fragment),isDisplayed()))
                 .check(matches(hasChildCount(ITEMS_COUNT)));
-
+            //TODO: make delete
 
         onView(allOf(ViewMatchers.withId(R.id.List_rooms_fragment),isDisplayed())).check(matches(hasChildCount(ITEMS_COUNT-1)));
 
