@@ -26,7 +26,7 @@ public class MyRoomAdapter extends RecyclerView.Adapter<MyRoomAdapter.MyViewHold
 
     public MyRoomAdapter(List<Meeting> items) {
         this.mMeetings = items;
-        this.mFullMeetings = items;
+        mFullMeetings = new ArrayList<>(items);
     }
 
     @Override
@@ -98,11 +98,10 @@ public class MyRoomAdapter extends RecyclerView.Adapter<MyRoomAdapter.MyViewHold
     }
 
     /***search*/
-
     public void setFilter(List<Meeting> meetings) {
         mMeetings = new ArrayList<>();
         mMeetings.addAll(meetings);
         notifyDataSetChanged();
     }
-
 }
+

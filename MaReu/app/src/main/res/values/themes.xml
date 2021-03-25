@@ -2,8 +2,8 @@
     <!-- Base application theme. -->
     <style name="Theme.MaRéu" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/purple_500</item>
-        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorPrimary">#4E92DF</item>
+        <item name="colorPrimaryVariant">#4079BA</item>
         <item name="colorOnPrimary">@color/white</item>
         <item name="android:textColorSecondary">@color/white</item>
         <item name="android:editTextColor">@color/white</item>
@@ -16,6 +16,16 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
 
+        <!-- OverFlow -->
+        <item name="android:actionOverflowButtonStyle">@style/OverFlow</item>
+
 
     </style>
+
+    <!-- Styles OverFlow  -->
+    <style name="OverFlow" parent="@android:style/Widget.Holo.ActionButton.Overflow">
+        <item name="android:src">@drawable/ic_baseline_filter_list_24</item>
+    </style>
+
+
 </resources>

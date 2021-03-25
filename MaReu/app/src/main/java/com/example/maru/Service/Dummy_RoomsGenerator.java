@@ -28,8 +28,8 @@ public abstract class Dummy_RoomsGenerator {
 
     public static List<Meeting> STATIC_MEETING = Arrays.asList(
             new Meeting((long) 1,"Reunion ","15:00","2/3/2021","aleyna@gmail.com","Les poules et les oeufs","Tokyo",R.drawable.tokyo),
-            new Meeting((long) 2,"place au poule","16:00","28/3/2021","aleyna@gmail.com, lulu@gmail.com","Prochaine réunion","Kyoto",R.drawable.kyoto),
-            new Meeting((long) 3,"meeting","11:00","18/7/2021","aleyna@gmail.com, lili@gmail.com, bob@gmail.com","Test d'application","Osaka",R.drawable.osaka)
+            new Meeting((long) 2,"Place au poule","16:00","28/3/2021","aleyna@gmail.com, lulu@gmail.com","Prochaine réunion","Kyoto",R.drawable.kyoto),
+            new Meeting((long) 3,"Meeting","11:00","18/7/2021","aleyna@gmail.com, lili@gmail.com, bob@gmail.com","Test d'application","Osaka",R.drawable.osaka)
     );
 
     public static List<Meeting> generateMeeting() {

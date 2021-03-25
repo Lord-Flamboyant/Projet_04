@@ -6,17 +6,14 @@
 
    <item
        android:id="@+id/search_date"
-       android:icon="@drawable/ic_baseline_calendar_today_24"
-       android:title="recherche par date"
+       android:title="Recherche par date"
        actionbarcompat_mse:actionViewClass="androidx.appcompat.widget.SearchView"
-       actionbarcompat_mse:showAsAction="ifRoom|collapseActionView" />
+       actionbarcompat_mse:showAsAction="collapseActionView" />
 
    <item
        android:id="@+id/action_search"
-       android:icon="@drawable/ic_baseline_location_on_24"
-       android:title="search"
+       android:title="Recherche par lieu"
        actionbarcompat_mse:actionViewClass="androidx.appcompat.widget.SearchView"
-       actionbarcompat_mse:showAsAction="ifRoom|collapseActionView" />
-
+       actionbarcompat_mse:showAsAction="collapseActionView" />
 
 </menu>
