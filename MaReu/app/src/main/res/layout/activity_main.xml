@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".Main.MainActivity">
 
+
     <include
         android:id="@+id/mytoolbar"
         layout="@layout/toolbar"
@@ -28,13 +29,13 @@
         app:tint="#FFFFFF" />
 
     <androidx.viewpager2.widget.ViewPager2
-        android:id="@+id/container"
+        android:id="@+id/viewmeeting"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="56dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@id/mytoolbar"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/mytoolbar" />
 
 

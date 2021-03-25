@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/meeting_fragment"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical">
@@ -69,8 +70,8 @@
 
         <TextView
             android:id="@+id/Mail_employer"
-            android:layout_width="216dp"
-            android:layout_height="17dp"
+            android:layout_width="239dp"
+            android:layout_height="25dp"
             android:layout_marginStart="6dp"
             android:layout_marginTop="2dp"
             android:text="brigitte@jebosse.com"
@@ -85,7 +86,7 @@
             android:layout_marginEnd="4dp"
             android:backgroundTint="#00FFFFFF"
             android:src="@android:drawable/ic_menu_delete"
-            android:tint="#FB0000"
+            android:tint="#000000"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -101,4 +102,4 @@
             app:layout_constraintStart_toEndOf="@+id/Trait"
             app:layout_constraintTop_toTopOf="@+id/Trait" />
     </androidx.constraintlayout.widget.ConstraintLayout>
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
