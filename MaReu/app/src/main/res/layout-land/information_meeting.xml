@@ -18,7 +18,7 @@
         android:id="@+id/cardView"
         android:layout_width="350dp"
         android:layout_height="70dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="2dp"
         app:layout_constraintEnd_toEndOf="@id/mytoolbarinfo"
         app:layout_constraintStart_toStartOf="@id/mytoolbarinfo"
         app:layout_constraintTop_toBottomOf="@+id/mytoolbarinfo">
@@ -81,10 +81,10 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView2"
-        android:layout_width="350dp"
-        android:layout_height="120dp"
+        android:layout_width="280dp"
+        android:layout_height="190dp"
+        android:layout_marginStart="12dp"
         android:layout_marginTop="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cardView">
 
@@ -106,8 +106,8 @@
 
             <TextView
                 android:id="@+id/Name_Employer_info"
-                android:layout_width="324dp"
-                android:layout_height="75dp"
+                android:layout_width="268dp"
+                android:layout_height="147dp"
                 android:layout_marginTop="4dp"
                 android:text="TextView"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -118,12 +118,12 @@
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
-        android:layout_width="350dp"
-        android:layout_height="266dp"
+        android:layout_width="280dp"
+        android:layout_height="190dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardView2">
+        app:layout_constraintStart_toEndOf="@+id/cardView2"
+        app:layout_constraintTop_toBottomOf="@+id/cardView">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -143,12 +143,12 @@
 
             <TextView
                 android:id="@+id/Sujet_Meetinf_info"
-                android:layout_width="327dp"
-                android:layout_height="223dp"
+                android:layout_width="268dp"
+                android:layout_height="141dp"
                 android:layout_marginTop="8dp"
                 android:text="TextView"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="@+id/Sujet_info"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/Sujet_info" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>

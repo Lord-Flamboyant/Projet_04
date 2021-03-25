@@ -8,24 +8,29 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import com.example.maru.View.ListPageAdapter;
+import com.example.maru.View.MyRoomAdapter;
 import com.example.maru.View.NewMeeting;
 import com.example.maru.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
 
-    ActivityMainBinding activityMainBinding;
+    ActivityMainBinding binding;
+    ListPageAdapter mListPageAdapter;
+    MyRoomAdapter mMyRoomAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        activityMainBinding = ActivityMainBinding.inflate(getLayoutInflater());
-        View view = activityMainBinding.getRoot();
-        setContentView(view);
+        binding = ActivityMainBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
         configureToolbar();
 
-        activityMainBinding.container.setAdapter(new ListPageAdapter(this));
+        mListPageAdapter = new ListPageAdapter(this);
+        binding.viewmeeting.setAdapter(mListPageAdapter);
 
-        activityMainBinding.buttonAddMeeting.setOnClickListener(new View.OnClickListener() {
+
+
+        binding.buttonAddMeeting.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent newMeeting = new Intent(MainActivity.this, NewMeeting.class);
@@ -36,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void configureToolbar() {
-        Toolbar toolbar = activityMainBinding.mytoolbar.toolBar;
+        Toolbar toolbar = binding.mytoolbar.toolBar;
         setSupportActionBar(toolbar);
     }
 }

@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -19,7 +21,7 @@ import com.example.maru.databinding.FragmentRoomBinding;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MyRoomAdapter extends RecyclerView.Adapter<MyRoomAdapter.MyViewHolder> {
+public class MyRoomAdapter extends RecyclerView.Adapter<MyRoomAdapter.MyViewHolder> implements Filterable {
 
     List<Meeting> mMeetings;
     List<Meeting> mFullMeetings;
@@ -103,5 +105,41 @@ public class MyRoomAdapter extends RecyclerView.Adapter<MyRoomAdapter.MyViewHold
         mMeetings.addAll(meetings);
         notifyDataSetChanged();
     }
+
+    /*** search test */
+
+    @Override
+    public Filter getFilter() {
+        return exampleFilter;
+    }
+    private Filter exampleFilter = new Filter() {
+        @Override
+        protected FilterResults performFiltering(CharSequence constraint) {
+            List<Meeting> filteredList = new ArrayList<>();
+            if (constraint == null || constraint.length() == 0) {
+                filteredList.addAll(mFullMeetings);
+            } else {
+                String filterPattern = constraint.toString().toLowerCase().trim();
+                for (Meeting item : mFullMeetings) {
+                    if (item.getLocalisation().toLowerCase().contains(filterPattern)) {
+                        filteredList.add(item);
+                    }
+                }
+            }
+            FilterResults results = new FilterResults();
+            results.values = filteredList;
+            return results;
+        }
+        @Override
+        protected void publishResults(CharSequence constraint, FilterResults results) {
+            mMeetings.clear();
+            mMeetings.addAll((List) results.values);
+            notifyDataSetChanged();
+        }
+    };
+
+
+
+
 }
 
