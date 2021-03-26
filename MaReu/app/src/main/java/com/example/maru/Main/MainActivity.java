@@ -8,7 +8,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import com.example.maru.View.ListPageAdapter;
-import com.example.maru.View.MyRoomAdapter;
 import com.example.maru.View.NewMeeting;
 import com.example.maru.databinding.ActivityMainBinding;
 
@@ -16,7 +15,6 @@ public class MainActivity extends AppCompatActivity {
 
     ActivityMainBinding binding;
     ListPageAdapter mListPageAdapter;
-    MyRoomAdapter mMyRoomAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
