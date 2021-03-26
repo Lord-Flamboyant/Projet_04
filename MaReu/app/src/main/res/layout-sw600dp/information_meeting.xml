@@ -10,17 +10,17 @@
         android:id="@+id/mytoolbarinfo"
         layout="@layout/toolbar"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-    </include>
+        app:layout_constraintTop_toTopOf="parent"></include>
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
-        android:layout_width="350dp"
-        android:layout_height="70dp"
-        android:layout_marginTop="4dp"
+        android:layout_width="384dp"
+        android:layout_height="140dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="16dp"
         app:cardCornerRadius="20dp"
-        app:layout_constraintEnd_toEndOf="@id/mytoolbarinfo"
         app:layout_constraintStart_toStartOf="@id/mytoolbarinfo"
         app:layout_constraintTop_toBottomOf="@+id/mytoolbarinfo">
 
@@ -34,7 +34,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
                 android:text="Réunion"
-                android:textSize="18sp"
+                android:textSize="24sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -42,19 +42,21 @@
 
             <TextView
                 android:id="@+id/Date_Meeting_info"
-                android:layout_width="151dp"
-                android:layout_height="18dp"
+                android:layout_width="150dp"
+                android:layout_height="25dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
                 android:text="Vendredi 17 Novembre"
+                android:textSize="18sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/Name_Meeting" />
 
             <TextView
                 android:id="@+id/Hour_Meeting_info"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="58dp"
+                android:layout_height="24dp"
                 android:text="14h30"
+                android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="@+id/Name_Meeting"
                 app:layout_constraintStart_toEndOf="@+id/Date_Meeting_info"
                 app:layout_constraintTop_toTopOf="@+id/Date_Meeting_info" />
@@ -65,6 +67,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="6dp"
                 android:text="Tokyo"
+                android:textSize="18sp"
                 app:layout_constraintStart_toEndOf="@+id/A_info"
                 app:layout_constraintTop_toTopOf="@+id/A_info" />
 
@@ -72,25 +75,25 @@
                 android:id="@+id/A_info"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="60dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="16dp"
                 android:text="à"
-                app:layout_constraintStart_toEndOf="@+id/Hour_Meeting_info"
-                app:layout_constraintTop_toTopOf="@+id/Hour_Meeting_info" />
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/Date_Meeting_info" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView2"
-        android:layout_width="280dp"
-        android:layout_height="190dp"
+        android:layout_width="365dp"
+        android:layout_height="140dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="280dp"
+        android:layout_marginEnd="30dp"
         app:cardCornerRadius="20dp"
-        app:layout_constraintEnd_toEndOf="@+id/cardView"
-        app:layout_constraintHorizontal_bias="0.50"
-        app:layout_constraintStart_toStartOf="@+id/cardView"
-        app:layout_constraintTop_toBottomOf="@+id/cardView">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mytoolbarinfo">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -100,20 +103,21 @@
                 android:id="@+id/Participate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="6dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="4dp"
                 android:text="Participant"
-                android:textSize="18sp"
+                android:textSize="24sp"
                 android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/Name_Employer_info"
-                android:layout_width="268dp"
-                android:layout_height="147dp"
+                android:layout_width="342dp"
+                android:layout_height="88dp"
                 android:layout_marginTop="4dp"
                 android:text="TextView"
+                android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/Participate" />
@@ -123,13 +127,13 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView3"
-        android:layout_width="280dp"
-        android:layout_height="190dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_width="514dp"
+        android:layout_height="346dp"
+        android:layout_marginTop="80dp"
         app:cardCornerRadius="20dp"
-        app:layout_constraintStart_toEndOf="@+id/cardView2"
-        app:layout_constraintTop_toBottomOf="@+id/cardView">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView2">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -139,20 +143,21 @@
                 android:id="@+id/Sujet_info"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="6dp"
                 android:layout_marginTop="8dp"
                 android:text="Sujet de la réunion"
-                android:textSize="18sp"
+                android:textSize="24sp"
                 android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/Sujet_Meetinf_info"
-                android:layout_width="268dp"
-                android:layout_height="141dp"
+                android:layout_width="481dp"
+                android:layout_height="280dp"
                 android:layout_marginTop="8dp"
                 android:text="TextView"
+                android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/Sujet_info" />

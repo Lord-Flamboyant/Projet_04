@@ -60,7 +60,6 @@ public class RoomFragment extends Fragment {
     public void onResume() {
         super.onResume();
         initList();
-
     }
 
     @Override
