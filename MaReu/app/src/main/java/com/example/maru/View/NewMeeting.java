@@ -123,7 +123,7 @@ public class NewMeeting extends AppCompatActivity {
 
 
         /***Creating new Meeting*/
-        meetingNewBinding.button2.setOnClickListener(new View.OnClickListener() {
+        meetingNewBinding.buttonCreate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Meeting meeting = new Meeting(
@@ -138,18 +138,27 @@ public class NewMeeting extends AppCompatActivity {
                 );
 
                 String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
-                String[] test = email.getText().toString().trim().split(",");
+                String[] test = email.getText().toString().trim().split("/");
 
-                for(int i = 0; i< test.length;i++) {
-                    if(!test[i].matches(emailPattern)){
+                for (String s : test) {
+                    if (s.matches(emailPattern) || !s.matches(emailPattern)) {
+
+                        if (!s.matches(emailPattern) ) {
+                            Toast.makeText(getApplicationContext(), "Ecrire un Email.", Toast.LENGTH_SHORT).show();
+
+                        }if (s.matches(emailPattern)) {
+                            meetingApiService.createMeeting(meeting);
+                            finish();
+                        break;}
+
+
+                    }else
                         Toast.makeText(getApplicationContext(), "Erreur d'Email.", Toast.LENGTH_SHORT).show();
 
-                    } else
-                        meetingApiService.createMeeting(meeting);
-                        finish();
-                        break;
 
                 }
+
+
 
             }
 

@@ -15,7 +15,7 @@
     </include>
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/button_create"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="18dp"
@@ -110,12 +110,11 @@
 
     <EditText
         android:id="@+id/Mail_Meetin_new"
-        android:layout_width="wrap_content"
-        android:layout_height="46dp"
+        android:layout_width="632dp"
+        android:layout_height="89dp"
         android:layout_marginTop="6dp"
         android:ems="10"
-        android:hint="@string/adressmail"
-        android:inputType="textPersonName|textEmailSubject"
+        android:hint="@string/consigne"
         android:textColor="@color/black"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="@+id/Participantt"

@@ -116,7 +116,6 @@
                 android:layout_width="342dp"
                 android:layout_height="88dp"
                 android:layout_marginTop="4dp"
-                android:inputType="textEmailAddress"
                 android:text="@string/adressmail"
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="parent"

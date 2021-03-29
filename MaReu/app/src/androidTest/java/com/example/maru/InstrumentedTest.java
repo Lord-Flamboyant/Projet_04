@@ -23,6 +23,7 @@ import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.action.ViewActions.click;
 import static androidx.test.espresso.action.ViewActions.closeSoftKeyboard;
 import static androidx.test.espresso.action.ViewActions.replaceText;
+import static androidx.test.espresso.action.ViewActions.scrollTo;
 import static androidx.test.espresso.assertion.ViewAssertions.matches;
 import static androidx.test.espresso.contrib.RecyclerViewActions.actionOnItemAtPosition;
 import static androidx.test.espresso.matcher.ViewMatchers.hasChildCount;
@@ -51,7 +52,6 @@ public class InstrumentedTest {
     public ActivityTestRule<MainActivity> mActivityTestRule = new ActivityTestRule<>(MainActivity.class);
 
 
-    //TODO: make test with tablet
     /*** make search with tokyo room */
     @Test
     public void searchRoom() {
@@ -142,16 +142,18 @@ public class InstrumentedTest {
         recyclerView.perform(actionOnItemAtPosition(0, click()));
 
         ViewInteraction textView = onView(
-                allOf(withId(R.id.Place_Meeting_info), withText("osaka"),
+                allOf(withId(R.id.Place_Meeting_info), withText("Osaka"),
                         withParent(withParent(withId(R.id.cardView))),
                         isDisplayed()));
-        textView.check(matches(withText("osaka")));
+        textView.check(matches(withText("Osaka")));
     }
+
+
 
     /*** search with date */
     @Test
     public void researchWithDate() {
-        ViewInteraction overflowMenuButton = onView(
+        ViewInteraction overflowMenuButton3 = onView(
                 allOf(withContentDescription("More options"),
                         childAtPosition(
                                 childAtPosition(
@@ -159,10 +161,10 @@ public class InstrumentedTest {
                                         1),
                                 0),
                         isDisplayed()));
-        overflowMenuButton.perform(click());
+        overflowMenuButton3.perform(click());
 
         ViewInteraction appCompatTextView = onView(
-                allOf(withId(R.id.title), withText("Recherche par date"),
+                allOf(withId(R.id.title), withText("Recherche par Date"),
                         childAtPosition(
                                 childAtPosition(
                                         withId(R.id.content),
@@ -194,13 +196,13 @@ public class InstrumentedTest {
                         withParent(withParent(withId(R.id.cardView))),
                         isDisplayed()));
         textView.check(matches(withText("28/3/2021")));
-    }
+    }    
+    
+
 
     /*** create a new room */
     @Test
-    public void createRoom() {
-        onView(allOf(withId(R.id.List_rooms),isDisplayed())).check(matches(hasChildCount(ITEMS_COUNT)));
-
+    public void createRoom() throws InterruptedException {
         ViewInteraction floatingActionButton = onView(
                 allOf(withId(R.id.button_add_meeting),
                         childAtPosition(
@@ -210,6 +212,74 @@ public class InstrumentedTest {
                                 1),
                         isDisplayed()));
         floatingActionButton.perform(click());
+
+        ViewInteraction textInputEditText = onView(
+                allOf(withId(R.id.Name_Meeting_New),
+                        childAtPosition(
+                                childAtPosition(
+                                        withId(android.R.id.content),
+                                        0),
+                                3),
+                        isDisplayed()));
+        textInputEditText.perform(replaceText("reunion"), closeSoftKeyboard());
+
+        ViewInteraction appCompatTextView = onView(
+                allOf(withId(R.id.Date_Meeting_new),
+                        childAtPosition(
+                                childAtPosition(
+                                        withId(android.R.id.content),
+                                        0),
+                                6),
+                        isDisplayed()));
+        appCompatTextView.perform(click());
+
+        ViewInteraction appCompatButton = onView(
+                allOf(withId(android.R.id.button1), withText("OK"),
+                        childAtPosition(
+                                childAtPosition(
+                                        withClassName(is("android.widget.ScrollView")),
+                                        0),
+                                3)));
+        appCompatButton.perform(scrollTo(), click());
+
+        ViewInteraction appCompatTextView2 = onView(
+                allOf(withId(R.id.Hour_Meeting_new),
+                        childAtPosition(
+                                childAtPosition(
+                                        withId(android.R.id.content),
+                                        0),
+                                7),
+                        isDisplayed()));
+        appCompatTextView2.perform(click());
+
+        ViewInteraction appCompatButton2 = onView(
+                allOf(withId(android.R.id.button1), withText("OK"),
+                        childAtPosition(
+                                childAtPosition(
+                                        withClassName(is("android.widget.ScrollView")),
+                                        0),
+                                3)));
+        appCompatButton2.perform(scrollTo(), click());
+
+        ViewInteraction appCompatEditText = onView(
+                allOf(withId(R.id.Mail_Meetin_new),
+                        childAtPosition(
+                                childAtPosition(
+                                        withId(android.R.id.content),
+                                        0),
+                                9),
+                        isDisplayed()));
+        appCompatEditText.perform(replaceText("benjamin@test.com"), closeSoftKeyboard());
+
+        ViewInteraction appCompatEditText2 = onView(
+                allOf(withId(R.id.Sujet_Meeting_new),
+                        childAtPosition(
+                                childAtPosition(
+                                        withId(android.R.id.content),
+                                        0),
+                                11),
+                        isDisplayed()));
+        appCompatEditText2.perform(replaceText("test"), closeSoftKeyboard());
 
         ViewInteraction appCompatSpinner = onView(
                 allOf(withId(R.id.Localisation_new),
@@ -226,26 +296,13 @@ public class InstrumentedTest {
                         childAtPosition(
                                 withId(R.id.contentPanel),
                                 0)))
-                .atPosition(7);
+                .atPosition(8);
         appCompatCheckedTextView.perform(click());
 
-        ViewInteraction appCompatButton = onView(
-                allOf(withId(R.id.button2), withText("Créer"),
-                        childAtPosition(
-                                childAtPosition(
-                                        withId(android.R.id.content),
-                                        0),
-                                1),
-                        isDisplayed()));
-        appCompatButton.perform(click());
+        onView(withId(R.id.button_create)).perform(click());
 
         onView(allOf(withId(R.id.List_rooms),isDisplayed())).check(matches(hasChildCount(ITEMS_COUNT + 1)));
     }
-
-    /*** delete a meeting */
-            //TODO: make delete
-
-
 
     /*** option */
     private static Matcher<View> childAtPosition(
