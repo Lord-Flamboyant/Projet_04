@@ -44,10 +44,4 @@ public class UnitTest {
         service.deleteMeeting(meeting);
         assertFalse(meetingList.contains(meeting));
     }
-
-    /*** fitered meeting localisation */
-    //TODO: make it
-
-    /*** filtered meeting day */
-    //TODO: make it
 }
