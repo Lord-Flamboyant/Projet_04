@@ -12,7 +12,9 @@ import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -50,6 +52,7 @@ public class NewMeeting extends AppCompatActivity {
         View view = meetingNewBinding.getRoot();
         setContentView(view);
         meetingApiService = DI.getMeetingApiService();
+        EditText email = (EditText)meetingNewBinding.MailMeetinNew;
         configureToolbar();
 
         /***select meeting room*/
@@ -118,6 +121,7 @@ public class NewMeeting extends AppCompatActivity {
             }
         });
 
+
         /***Creating new Meeting*/
         meetingNewBinding.button2.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -132,9 +136,23 @@ public class NewMeeting extends AppCompatActivity {
                         meetingNewBinding.LocalisationNew.getSelectedItem().toString(),
                         meetingNewBinding.LocalisationNew.getSelectedItem().hashCode()
                 );
-                meetingApiService.createMeeting(meeting);
-                finish();
+
+                String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
+                String[] test = email.getText().toString().trim().split(",");
+
+                for(int i = 0; i< test.length;i++) {
+                    if(!test[i].matches(emailPattern)){
+                        Toast.makeText(getApplicationContext(), "Erreur d'Email.", Toast.LENGTH_SHORT).show();
+
+                    } else
+                        meetingApiService.createMeeting(meeting);
+                        finish();
+                        break;
+
+                }
+
             }
+
         });
     }
 
@@ -155,6 +173,7 @@ public class NewMeeting extends AppCompatActivity {
     }
 
     @Override
+
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.information_menu,menu);
         return true;

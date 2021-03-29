@@ -1,6 +1,21 @@
 <resources>
     <string name="app_name">Ma Réu</string>
     <string name="recherche_par_lieu">Recherche par Lieu</string>
-    <string name="recherche_par_heure">Recherche par heure</string>
+    <string name="recherche_par_date">Recherche par Date</string>
+    <string name="reu">Réunion</string>
+    <string name="participant">Participant</string>
+    <string name="sujet">Sujet de la réunion</string>
+    <string name="nomréu">Nom de la réunion</string>
+    <string name="datereu">Date de la réunion</string>
+    <string name="heurereu">Heure de la réunion</string>
+    <string name="salle">Salle</string>
+    <string name="creer">Créer</string>
+    <string name="back">Back</string>
+    <string name="trait"> - </string>
+    <string name="delete">delete</string>
+    <string name="heure222">13:50</string>
+    <string name="a">à</string>
+    <string name="adressmail">adress@mail.com</string>
+
 
 </resources>

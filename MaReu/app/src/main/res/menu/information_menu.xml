@@ -6,7 +6,7 @@
         android:id="@+id/back"
         android:icon="@drawable/ic_baseline_arrow_back_24"
         android:orderInCategory="0"
-        android:title="back"
+        android:title="@string/back"
         actionbarcompat_mse:showAsAction="ifRoom">
 
     </item>

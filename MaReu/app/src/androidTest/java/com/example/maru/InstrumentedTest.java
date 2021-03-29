@@ -51,6 +51,7 @@ public class InstrumentedTest {
     public ActivityTestRule<MainActivity> mActivityTestRule = new ActivityTestRule<>(MainActivity.class);
 
 
+    //TODO: make test with tablet
     /*** make search with tokyo room */
     @Test
     public void searchRoom() {
@@ -65,7 +66,7 @@ public class InstrumentedTest {
         overflowMenuButton.perform(click());
 
         ViewInteraction appCompatTextView = onView(
-                allOf(withId(R.id.title), withText("Recherche par lieu"),
+                allOf(withId(R.id.title), withText("Recherche par Lieu"),
                         childAtPosition(
                                 childAtPosition(
                                         withId(R.id.content),
@@ -99,7 +100,6 @@ public class InstrumentedTest {
         textView.check(matches(withText("Tokyo")));
     }
 
-
     /*** watch if room's research is good in detail activity (with Osaka) */
     @Test
     public void researchOsakaPlace() {
@@ -114,7 +114,7 @@ public class InstrumentedTest {
         overflowMenuButton.perform(click());
 
         ViewInteraction appCompatTextView = onView(
-                allOf(withId(R.id.title), withText("Recherche par lieu"),
+                allOf(withId(R.id.title), withText("Recherche par Lieu"),
                         childAtPosition(
                                 childAtPosition(
                                         withId(R.id.content),
@@ -142,10 +142,10 @@ public class InstrumentedTest {
         recyclerView.perform(actionOnItemAtPosition(0, click()));
 
         ViewInteraction textView = onView(
-                allOf(withId(R.id.Place_Meeting_info), withText("Osaka"),
+                allOf(withId(R.id.Place_Meeting_info), withText("osaka"),
                         withParent(withParent(withId(R.id.cardView))),
                         isDisplayed()));
-        textView.check(matches(withText("Osaka")));
+        textView.check(matches(withText("osaka")));
     }
 
     /*** search with date */
