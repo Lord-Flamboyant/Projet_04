@@ -5,6 +5,7 @@ import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Patterns;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -137,11 +138,11 @@ public class NewMeeting extends AppCompatActivity {
                         meetingNewBinding.LocalisationNew.getSelectedItem().hashCode()
                 );
 
-                String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
-                String[] test = email.getText().toString().trim().split("/");
+                String emailPattern = Patterns.EMAIL_ADDRESS.toString();
+                String[] mail = email.getText().toString().trim().split("/");
 
-                for (String s : test) {
-                    if (s.matches(emailPattern) || !s.matches(emailPattern)) {
+                for (String s : mail) {
+                    if (s.matches(emailPattern)) {
 
                         if (!s.matches(emailPattern) ) {
                             Toast.makeText(getApplicationContext(), "Ecrire un Email.", Toast.LENGTH_SHORT).show();
@@ -149,7 +150,7 @@ public class NewMeeting extends AppCompatActivity {
                         }if (s.matches(emailPattern)) {
                             meetingApiService.createMeeting(meeting);
                             finish();
-                        break;}
+                            break;}
 
 
                     }else
