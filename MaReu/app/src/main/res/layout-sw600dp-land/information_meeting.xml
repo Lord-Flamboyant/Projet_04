@@ -15,8 +15,8 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
-        android:layout_width="251dp"
-        android:layout_height="103dp"
+        android:layout_width="308dp"
+        android:layout_height="114dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
         app:cardCornerRadius="20dp"
@@ -71,7 +71,7 @@
             <TextView
                 android:id="@+id/A_info"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="19dp"
                 android:layout_marginTop="2dp"
                 android:text="@string/a"
                 app:layout_constraintStart_toStartOf="@+id/Date_Meeting_info"
@@ -82,8 +82,8 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView2"
-        android:layout_width="287dp"
-        android:layout_height="111dp"
+        android:layout_width="309dp"
+        android:layout_height="119dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         app:cardCornerRadius="20dp"
@@ -108,8 +108,8 @@
 
             <TextView
                 android:id="@+id/Name_Employer_info"
-                android:layout_width="265dp"
-                android:layout_height="67dp"
+                android:layout_width="286dp"
+                android:layout_height="71dp"
                 android:layout_marginTop="4dp"
                 android:text="@string/adressmail"
                 app:layout_constraintEnd_toEndOf="parent"
