@@ -17,6 +17,7 @@
     <string name="a">à</string>
     <string name="adressmail">adress@mail.com</string>
     <string name="consigne">mettre un "/" entre les adresses mail </string>
+    <string name="searchmenu">menu recherché</string>
 
 
 </resources>
