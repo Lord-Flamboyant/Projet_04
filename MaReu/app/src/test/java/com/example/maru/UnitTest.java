@@ -11,6 +11,7 @@ import org.junit.Test;
 import java.util.List;
 
 import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertTrue;
 
 /**
@@ -21,6 +22,7 @@ import static org.junit.Assert.assertTrue;
 public class UnitTest {
 
     private MeetingApiService service;
+
 
     @Before
     public void setup() {
@@ -43,5 +45,40 @@ public class UnitTest {
         Meeting meeting = Dummy_RoomsGenerator.generateMeeting().get(0);
         service.deleteMeeting(meeting);
         assertFalse(meetingList.contains(meeting));
+    }
+
+    /*** Search with localisation*/
+    @Test
+    public void searchOsaka() {
+        List<Meeting> meetingList = service.getMeetings();
+        int listSizeStart = meetingList.size();
+        String Localisation = "Osaka";
+
+        List<Meeting> filteredList = DI.getMeetingApiService().filteredByRoom(meetingList, Localisation);
+        filteredList.size();
+        assertNotEquals(filteredList, listSizeStart);
+
+        service.createMeeting(new Meeting((long) 1,"je pousse le bouchon ","15:00","28/3/2021","aleyna@gmail.com","j'abuse un peut","Osaka",R.drawable.tokyo));
+        List<Meeting> filteredList2 = DI.getMeetingApiService().filteredByRoom(meetingList, Localisation);
+        filteredList2.size();
+        assertNotEquals(2, filteredList2);
+
+    }
+
+    /** Search with date*/
+    @Test
+    public void searchDate() {
+        List<Meeting> meetingsList = service.getMeetings();
+        int listSizeStart = meetingsList.size();
+        String Date = "28";
+
+        List<Meeting> filteredList = DI.getMeetingApiService().filteredByDate(meetingsList, Date);
+        filteredList.size();
+        assertNotEquals(filteredList, listSizeStart);
+
+        service.createMeeting(new Meeting((long) 1,"je encore le bouchon","15:00","28/3/2021","aleyna@gmail.com","je suis dans l'abus","Tokyo",R.drawable.tokyo));
+        List<Meeting> filteredList2 = DI.getMeetingApiService().filteredByDate(meetingsList, Date);
+        filteredList2.size();
+        assertNotEquals(2, filteredList2);
     }
 }

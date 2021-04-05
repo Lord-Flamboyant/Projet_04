@@ -9,6 +9,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.DividerItemDecoration;
@@ -20,7 +21,6 @@ import com.example.maru.Model.Meeting;
 import com.example.maru.R;
 import com.example.maru.Service.MeetingApiService;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class RoomFragment extends Fragment {
@@ -38,7 +38,6 @@ public class RoomFragment extends Fragment {
         setHasOptionsMenu(true);
         mMeetingApiService = DI.getMeetingApiService();
         super.onCreate(savedInstanceState);
-
     }
 
     @Override
@@ -73,78 +72,66 @@ public class RoomFragment extends Fragment {
     }
 
 
-
-
     /*** search with localisation*/
     @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+    public void onCreateOptionsMenu(@NonNull Menu menu, MenuInflater inflater) {
         inflater.inflate(R.menu.main_menu, menu);
-        MenuItem searchItem = menu.findItem(R.id.action_search);
-        SearchView searchView = (SearchView) searchItem.getActionView();
-        searchView.setQueryHint("Salle");
 
+        super.onCreateOptionsMenu(menu, inflater);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
         MyRoomAdapter adapter = new MyRoomAdapter(mMeetings);
         mRecyclerView.setAdapter(adapter);
 
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-                return false;
-            }
+        switch (id) {
 
-            @Override
-            public boolean onQueryTextChange(String newText) {
-                final List<Meeting> filteredList = filter(mMeetings, newText);
-                adapter.setFilter(filteredList);
-                return false;
-            }
-        });
+            case R.id.searchee:
+                item.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
+                return true;
 
-        MenuItem searchDate = menu.findItem(R.id.search_date);
-        SearchView searchView1 = (SearchView) searchDate.getActionView();
-        searchView1.setQueryHint("date");
+            case R.id.action_search:
+                SearchView searchView = (SearchView)item.getActionView();
+                searchView.setQueryHint("Salle");
+                searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+                    @Override
+                    public boolean onQueryTextSubmit(String query) {
+                        return false;
+                    }
 
-        searchView1.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-                return false;
-            }
+                    @Override
+                    public boolean onQueryTextChange(String newText) {
+                        List<Meeting> filteredList = DI.getMeetingApiService().filteredByRoom(mMeetings, newText);
+                        adapter.setFilter(filteredList);
+                        return false;
+                    }
+                });
+                return true;
 
-            @Override
-            public boolean onQueryTextChange(String newText) {
-                final List<Meeting> filteredList = filter_date(mMeetings, newText);
-                adapter.setFilter(filteredList);
-                return false;
-            }
-        });
+            case R.id.search_date:
 
-        super.onCreateOptionsMenu(menu,inflater);
-    }
+                SearchView searchView1 = (SearchView)item.getActionView();
+                searchView1.setQueryHint("Date");
+                searchView1.setIconified(true);
+                searchView1.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+                    @Override
+                    public boolean onQueryTextSubmit(String query) {
+                        return false;
+                    }
 
-    /***filter*/
-    private List<Meeting> filter(List<Meeting> meetings,String query) {
-        query = query.toLowerCase();
+                    @Override
+                    public boolean onQueryTextChange(String newText) {
+                        List<Meeting> filteredList = DI.getMeetingApiService().filteredByDate(mMeetings, newText);
+                        adapter.setFilter(filteredList);
+                        return false;
+                    }
+                });
+                return true;
 
-        final List<Meeting> filteredList = new ArrayList<>();
-        for (Meeting meeting : meetings) { ;
-            final String text = meeting.getLocalisation().toLowerCase();
-            if (text.contains(query)) {
-                filteredList.add(meeting);
-            }
+            default:
+                return super.onOptionsItemSelected(item);
         }
-        return filteredList;
-    }
-
-    private List<Meeting> filter_date(List<Meeting> meetings,String query) {
-        query = query.toLowerCase();
-
-        final List<Meeting> filteredList_date = new ArrayList<>();
-        for (Meeting meeting : meetings) {
-            final String hour = meeting.getDay().toLowerCase();
-            if (hour.contains(query)) {
-                filteredList_date.add(meeting);
-            }
-        }
-        return filteredList_date;
     }
 }

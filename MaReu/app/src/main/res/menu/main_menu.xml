@@ -4,16 +4,28 @@
     xmlns:actionbarcompat_mse="http://schemas.android.com/apk/res-auto"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-   <item
-       android:id="@+id/search_date"
-       android:title="@string/recherche_par_date"
-       actionbarcompat_mse:actionViewClass="androidx.appcompat.widget.SearchView"
-       actionbarcompat_mse:showAsAction="collapseActionView" />
 
    <item
-       android:id="@+id/action_search"
-       android:title="@string/recherche_par_lieu"
-       actionbarcompat_mse:actionViewClass="androidx.appcompat.widget.SearchView"
-       actionbarcompat_mse:showAsAction="collapseActionView" />
+      android:id="@+id/searchee"
+       android:title="@string/searchmenu"
+       android:icon="@drawable/ic_baseline_filter_list_24"
+       actionbarcompat_mse:showAsAction="always">
+      <menu>
+         <item
+             android:id="@+id/search_date"
+             android:title="@string/recherche_par_date"
+             actionbarcompat_mse:actionViewClass="androidx.appcompat.widget.SearchView"
+             app:showAsAction="ifRoom|collapseActionView"
+             />
+
+         <item
+             android:id="@+id/action_search"
+             android:title="@string/recherche_par_lieu"
+             actionbarcompat_mse:actionViewClass="androidx.appcompat.widget.SearchView"
+             app:showAsAction="ifRoom|collapseActionView" />
+
+      </menu>
+   </item>
+
 
 </menu>

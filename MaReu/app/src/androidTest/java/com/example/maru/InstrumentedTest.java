@@ -29,7 +29,6 @@ import static androidx.test.espresso.contrib.RecyclerViewActions.actionOnItemAtP
 import static androidx.test.espresso.matcher.ViewMatchers.hasChildCount;
 import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static androidx.test.espresso.matcher.ViewMatchers.withClassName;
-import static androidx.test.espresso.matcher.ViewMatchers.withContentDescription;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.espresso.matcher.ViewMatchers.withParent;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
@@ -55,15 +54,9 @@ public class InstrumentedTest {
     /*** make search with tokyo room */
     @Test
     public void searchRoom() {
-        ViewInteraction overflowMenuButton = onView(
-                allOf(withContentDescription("More options"),
-                        childAtPosition(
-                                childAtPosition(
-                                        withId(R.id.mytoolbar),
-                                        1),
-                                0),
-                        isDisplayed()));
-        overflowMenuButton.perform(click());
+
+
+        onView(withId(R.id.searchee)).perform(click());
 
         ViewInteraction appCompatTextView = onView(
                 allOf(withId(R.id.title), withText("Recherche par Lieu"),
@@ -100,68 +93,10 @@ public class InstrumentedTest {
         textView.check(matches(withText("Tokyo")));
     }
 
-    /*** watch if room's research is good in detail activity (with Osaka) */
-    @Test
-    public void researchOsakaPlace() {
-        ViewInteraction overflowMenuButton = onView(
-                allOf(withContentDescription("More options"),
-                        childAtPosition(
-                                childAtPosition(
-                                        withId(R.id.mytoolbar),
-                                        1),
-                                0),
-                        isDisplayed()));
-        overflowMenuButton.perform(click());
-
-        ViewInteraction appCompatTextView = onView(
-                allOf(withId(R.id.title), withText("Recherche par Lieu"),
-                        childAtPosition(
-                                childAtPosition(
-                                        withId(R.id.content),
-                                        0),
-                                0),
-                        isDisplayed()));
-        appCompatTextView.perform(click());
-
-        ViewInteraction searchAutoComplete = onView(
-                allOf(withId(R.id.search_src_text),
-                        childAtPosition(
-                                allOf(withId(R.id.search_plate),
-                                        childAtPosition(
-                                                withId(R.id.search_edit_frame),
-                                                1)),
-                                0),
-                        isDisplayed()));
-        searchAutoComplete.perform(replaceText("osaka"), closeSoftKeyboard());
-
-        ViewInteraction recyclerView = onView(
-                allOf(withId(R.id.List_rooms),
-                        childAtPosition(
-                                withClassName(is("android.widget.FrameLayout")),
-                                0)));
-        recyclerView.perform(actionOnItemAtPosition(0, click()));
-
-        ViewInteraction textView = onView(
-                allOf(withId(R.id.Place_Meeting_info), withText("Osaka"),
-                        withParent(withParent(withId(R.id.cardView))),
-                        isDisplayed()));
-        textView.check(matches(withText("Osaka")));
-    }
-
-
-
     /*** search with date */
     @Test
     public void researchWithDate() {
-        ViewInteraction overflowMenuButton3 = onView(
-                allOf(withContentDescription("More options"),
-                        childAtPosition(
-                                childAtPosition(
-                                        withId(R.id.mytoolbar),
-                                        1),
-                                0),
-                        isDisplayed()));
-        overflowMenuButton3.perform(click());
+        onView(withId(R.id.searchee)).perform(click());
 
         ViewInteraction appCompatTextView = onView(
                 allOf(withId(R.id.title), withText("Recherche par Date"),
@@ -301,8 +236,18 @@ public class InstrumentedTest {
 
         onView(withId(R.id.button_create)).perform(click());
 
-        onView(allOf(withId(R.id.List_rooms),isDisplayed())).check(matches(hasChildCount(ITEMS_COUNT + 1)));
     }
+
+
+    /*** delete a meeting */
+    @Test
+    public void deleteMeeting() {
+
+        onView(withIndex(withId(R.id.Trash_can), 2)).perform(click());
+
+        onView(allOf(withId(R.id.List_rooms),isDisplayed())).check(matches(hasChildCount(ITEMS_COUNT-1)));
+    }
+
 
     /*** option */
     private static Matcher<View> childAtPosition(
@@ -320,6 +265,26 @@ public class InstrumentedTest {
                 ViewParent parent = view.getParent();
                 return parent instanceof ViewGroup && parentMatcher.matches(parent)
                         && view.equals(((ViewGroup) parent).getChildAt(position));
+            }
+        };
+    }
+
+
+
+    public static Matcher<View> withIndex(final Matcher<View> matcher, final int index) {
+        return new TypeSafeMatcher<View>() {
+            int currentIndex = 0;
+
+            @Override
+            public void describeTo(Description description) {
+                description.appendText("with index: ");
+                description.appendValue(index);
+                matcher.describeTo(description);
+            }
+
+            @Override
+            public boolean matchesSafely(View view) {
+                return matcher.matches(view) && currentIndex++ == index;
             }
         };
     }

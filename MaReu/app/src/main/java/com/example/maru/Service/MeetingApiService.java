@@ -18,4 +18,10 @@ public interface MeetingApiService {
 
     /***generate room for creating meeting */
     List<MeetingRoom> getRooms();
+
+    /***Filter localisation */
+    List<Meeting> filteredByRoom(List<Meeting> meetings, String query);
+
+    /***filter with date */
+    List<Meeting> filteredByDate(List<Meeting> meetings, String query);
 }

@@ -71,11 +71,12 @@ public class MyRoomAdapter extends RecyclerView.Adapter<MyRoomAdapter.MyViewHold
 
     class MyViewHolder extends RecyclerView.ViewHolder {
         FragmentRoomBinding fragmentRoomBinding;
-        private TextView mNamneMeeting;
-        private TextView mNamePlace;
-        private ImageView mImageView;
-        private TextView mHour;
-        private TextView mMail;
+        private final TextView mNamneMeeting;
+        private final TextView mNamePlace;
+        private final ImageView mImageView;
+        private final TextView mHour;
+        private final TextView mMail;
+        private ImageView mTrash;
 
         MyViewHolder(FragmentRoomBinding fragmentRoomBinding) {
             super(fragmentRoomBinding.getRoot());
@@ -86,6 +87,7 @@ public class MyRoomAdapter extends RecyclerView.Adapter<MyRoomAdapter.MyViewHold
             mImageView = fragmentRoomBinding.Pastille;
             mHour = fragmentRoomBinding.DateMeeting;
             mMail = fragmentRoomBinding.MailEmployer;
+            mTrash = fragmentRoomBinding.TrashCan;
         }
 
         void display(Meeting meeting) {

@@ -10,6 +10,7 @@ import androidx.appcompat.widget.Toolbar;
 import com.example.maru.View.ListPageAdapter;
 import com.example.maru.View.NewMeeting;
 import com.example.maru.databinding.ActivityMainBinding;
+
 public class MainActivity extends AppCompatActivity {
 
     ActivityMainBinding binding;
@@ -22,13 +23,14 @@ public class MainActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
         configureToolbar();
 
+
         mListPageAdapter = new ListPageAdapter(this);
         binding.viewmeeting.setAdapter(mListPageAdapter);
 
         binding.buttonAddMeeting.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent newMeeting = new Intent(MainActivity.this, NewMeeting.class);
+                Intent newMeeting = new Intent(com.example.maru.Main.MainActivity.this, NewMeeting.class);
                 startActivity(newMeeting);
 
             }
@@ -39,4 +41,6 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = binding.mytoolbar.toolBar;
         setSupportActionBar(toolbar);
     }
+
+
 }
